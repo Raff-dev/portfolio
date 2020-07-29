@@ -2,26 +2,31 @@ import React, { Component } from 'react';
 import { Nav, Navbar, NavItem } from 'react-bootstrap';
 import { Container, Row, Col } from 'react-bootstrap'
 
-import { SideBar } from './components/SideBar/SideBar';
+import { SideBar } from './components/SideBar';
 import { About } from './components/About';
 import { Projects } from './components/Projects';
 import { Education } from './components/Education';
 import { Interests } from './components/Interests';
 import { Skills } from './components/Skills';
+import './css/AppStyles.css';
+
 
 export default class App extends Component {
     displayName = App.name
 
     render() {
         return (
-            <div fluid="true" className="App" >
-                <SideBar />
+            <div class="p-0">
                 <About />
-                <Projects />
+                <Projects class="pt-2" />
+                <hr class="m-0" />
                 <Education />
+                <hr class="m-0" />
                 <Skills />
+                <hr class="m-0" />
                 <Interests />
-            </div >
+                <SideBar />
+            </div>
         );
     }
 }

@@ -5,7 +5,7 @@ import {
     animateScroll as scroll, scrollSpy, scroller
 } from 'react-scroll'
 
-import './SideBarStyles.css'
+import '../css/SideBarStyles.css'
 
 export class SideBar extends Component {
     displayName = SideBar.name
@@ -28,7 +28,6 @@ export class SideBar extends Component {
                 <div>
                     <Link duration={800} smooth={true} to="Interests">Interests</Link>
                 </div>
-
             </div>
             //<Navbar inverse fixedTop fluid collapseOnSelect>
             //    <Navbar.Header>
