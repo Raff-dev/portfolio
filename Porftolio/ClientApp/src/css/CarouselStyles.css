@@ -1,0 +1,28 @@
+.carousel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cards {
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+}
+
+.card {
+    position: relative;
+}
+
+.card span {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%,0);
+    justify-content: center;
+}
+
+.card img {
+    width: 180px;
+    height: 180px;
+}

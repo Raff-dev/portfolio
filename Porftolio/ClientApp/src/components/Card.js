@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-
 export function Card(props) {
 
     return (
-        <div className="project-card">
-            <p>{props.project.title}</p>
-            <p>{props.project.description}</p>
-            {props.project.images.map(imageName =>
-                <img src={imageName} alt="Preview image"></img>
-            )}
-        </div>);
+        <div className="card">
+            <img src={props.card.imageSrc} />
+            <span>
+                <h3>{props.card.title}</h3>
+                <p>{props.card.description}</p>
+            </span>
+        </div>
+    );
 }
