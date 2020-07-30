@@ -12,15 +12,15 @@ export class About extends Component {
                 <meta charset="utf-8" />
                 <div class="resume-section-content">
                     <h1 class="mb-0">
-                        I'm Rafal
+                        My name is Rafal
                         <span class="surname"> Lazicki.</span>
                     </h1>
                     <span>
-                        <p class="description mb-5">My description goes here.</p>
+                        <p class="description mb-5">I'am a 3rd year computer science student.</p>
                     </span>
                     <div class="info mb-5">
                         <p>
-                            Batalionu AK "Parasol" 10/24   Warsaw   +48 504 854 839
+                            Batalionu AK "Parasol" 10/24, Warsaw +48 504 854 839
                         <a href="mailto:rafal.lazicki99@gmail.com"> rafal.lazicki99@gmail.com</a>
                         </p>
                     </div>

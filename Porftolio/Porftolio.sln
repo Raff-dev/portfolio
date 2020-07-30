@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30225.117
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Porftolio", "..\..\desktop\Portfolio\Portfolio\Porftolio\Porftolio.csproj", "{092690DB-404E-44C2-86C2-9B2862EE31C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Porftolio", "Porftolio.csproj", "{C1ED9453-BEE7-41D0-9AE3-90750345413E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{092690DB-404E-44C2-86C2-9B2862EE31C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{092690DB-404E-44C2-86C2-9B2862EE31C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{092690DB-404E-44C2-86C2-9B2862EE31C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{092690DB-404E-44C2-86C2-9B2862EE31C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1ED9453-BEE7-41D0-9AE3-90750345413E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1ED9453-BEE7-41D0-9AE3-90750345413E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1ED9453-BEE7-41D0-9AE3-90750345413E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1ED9453-BEE7-41D0-9AE3-90750345413E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {291C8F9A-3F5F-466B-95EB-10371A24CA0C}
+		SolutionGuid = {9BEC352F-D67D-4F15-8E50-FF409C8047C7}
 	EndGlobalSection
 EndGlobal

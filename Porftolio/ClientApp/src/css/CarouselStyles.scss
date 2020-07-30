@@ -5,13 +5,20 @@
 }
 
 .cards {
-    display: flex;
-    justify-content: space-around;
-    align-content: center;
+    display: grid;
+
+    > .card {
+        grid-area: 1/-1;
+    }
 }
 
 .card {
     position: relative;
+    width: 30vw;
+    height: 40vh;
+    outline: 5px solid;
+    border-color: red;
+    background: url('background-2.jpg');
 }
 
 .card span {
@@ -23,6 +30,7 @@
 }
 
 .card img {
-    width: 180px;
-    height: 180px;
+    width: 30vw;
+    height: 40vh;
+    object-fit: cover;
 }

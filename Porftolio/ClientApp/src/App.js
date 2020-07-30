@@ -8,7 +8,7 @@ import { Projects } from './components/Projects';
 import { Education } from './components/Education';
 import { Interests } from './components/Interests';
 import { Skills } from './components/Skills';
-import './css/AppStyles.css';
+import './css/AppStyles.scss';
 
 
 export default class App extends Component {

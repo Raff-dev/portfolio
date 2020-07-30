@@ -3,7 +3,6 @@ export function Card(props) {
 
     return (
         <div className="card">
-            <img src={props.card.imageSrc} />
             <span>
                 <h3>{props.card.title}</h3>
                 <p>{props.card.description}</p>
