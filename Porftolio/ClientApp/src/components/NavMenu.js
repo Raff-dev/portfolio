@@ -4,7 +4,7 @@ import {
     Link, animateScroll as scroll
 } from 'react-scroll'
 
-import '../css/NavMenuStyles.scss'
+import '../css/NavMenu.scss'
 
 export class NavMenu extends Component {
     displayName = NavMenu.name
@@ -18,7 +18,7 @@ export class NavMenu extends Component {
                 <Navbar.Collapse>
                     <Nav>
                         <NavItem>
-                            <Link onClick={() => scroll.scrollToTop()}>About</Link>
+                            <Link className="home" onClick={() => scroll.scrollToTop()}>Home</Link>
                         </NavItem>
                         <NavItem>
                             <Link onSetActive={() => console.log(this)} spy={true} duration={800} smooth={true} to="Projects">Projects</Link>
@@ -30,7 +30,7 @@ export class NavMenu extends Component {
                             <Link duration={1200} smooth={true} to="Skills">Skills</Link>
                         </NavItem>
                         <NavItem>
-                            <Link duration={1200} smooth={true} to="Interests">Interests</Link>
+                            <Link duration={1200} smooth={true} to="About">Interests</Link>
                         </NavItem>
                     </Nav>
                 </Navbar.Collapse>

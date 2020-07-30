@@ -22,15 +22,19 @@
         font-size: 16px;
         font-family: 'Roboto';
         font-weight: 500;
-        transition: 0.2s ease-in-out;
+        transition: 0.05s ease-out;
         color: rgba(255, 255, 255,50);
-        opacity: 0.9;
+        opacity: 0.85;
 
         &:hover {
             text-decoration: none;
-            transform: scale(1.05);
-            opacity: 1;
+            transform: scale(1.08);
+            opacity: 0.95;
         }
+    }
+
+    .home {
+        color: rgb(250, 100, 0);
     }
 }
 
