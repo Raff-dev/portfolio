@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { NavMenu, ScrollArrow } from './components/NavMenu';
 
-import { About } from './components/About';
+import { Home } from './components/Home';
 import { Projects } from './components/Projects';
 import { Education } from './components/Education';
-import { Interests } from './components/Interests';
+import { About } from './components/About';
 import { Skills } from './components/Skills';
-import './css/AppStyles.scss';
+import './css/App.scss';
 
 
 export default class App extends Component {
@@ -16,7 +16,7 @@ export default class App extends Component {
         return (
             <div class="p-0">
                 <NavMenu />
-                <About />
+                <Home />
                 <div>
                     <Projects class="pt-2" />
                     <hr class="m-0" />
@@ -24,7 +24,7 @@ export default class App extends Component {
                     <hr class="m-0" />
                     <Skills />
                     <hr class="m-0" />
-                    <Interests />
+                    <About />
                     <ScrollArrow />
                 </div>
             </div>

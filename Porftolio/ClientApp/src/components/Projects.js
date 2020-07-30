@@ -1,7 +1,5 @@
 ﻿import React, { Component } from 'react';
-import { Card } from './Card';
 import { Carousel } from './Carousel';
-import { ScrollArrow } from './NavMenu';
 
 export class Projects extends Component {
 
@@ -89,7 +87,7 @@ export class Projects extends Component {
             <Carousel cards={this.state.projects}></Carousel>;
 
         return (
-            <section className="resume-section-projects" id="Projects">
+            <section className="resume-section-projects" style={{ height: '100vh' }} id="Projects">
                 <span className="title-container">
                     <h2 className="mb-5">Projects</h2>
                 </span>

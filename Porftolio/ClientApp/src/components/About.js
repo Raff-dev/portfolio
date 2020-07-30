@@ -1,38 +1,17 @@
 import React, { Component } from 'react';
-import { Glyphicon } from 'react-bootstrap'
-import { Link } from 'react-scroll'
-import { SocialIcon } from 'react-social-icons';
-import '../css/AboutStyles.scss';
 
 export class About extends Component {
     displayName = About.name
 
     render() {
         return (
-            <section className="resume-section about" id="about">
+            <section className="resume-section" id="About">
                 <div className="resume-section-content">
-                    <h1 className="name mb-0">
-                        My name is Rafal<span class="surname"> Lazicki.</span>
-                    </h1>
-                    <span>
-                        <p className="description mb-5">I'am a 3rd year computer science student.</p>
+                    <span className="title-container">
+                        <h2 className="mb-5">About</h2>
                     </span>
-                    <div className="info mb-5">
-                        <p>Batalionu AK "Parasol" 10/24,</p>
-                        <p> Warsaw, </p>
-                        <p> +48 504 854 839, </p>
-                        <a href="mailto:rafal.lazicki99@gmail.com"> rafal.lazicki99@gmail.com</a>
-                    </div>
-                    <div className="social-icons">
-                        <SocialIcon url="https://www.linkedin.com/in/rlazicki/" />
-                        <SocialIcon url="https://www.facebook.com/RaffUsername/" />
-                        <SocialIcon url="https://github.com/Raff-dev" />
-                    </div>
-                    <div className="arrow">
-                        <Link to="Projects" duration={800} smooth={true}>
-                            <Glyphicon glyph="menu-down" />
-                        </Link>
-                    </div>
+                    <p>Apart from being a web developer, I enjoy most of my time being outdoors. In the winter, I am an avid skier and novice ice climber. During the warmer months here in Colorado, I enjoy mountain biking, free climbing, and kayaking.</p>
+                    <p className="mb-0">When forced indoors, I follow a number of sci-fi and fantasy genre movies and television shows, I am an aspiring chef, and I spend a large amount of my free time exploring the latest technology advancements in the front-end web development world.</p>
                 </div>
             </section>
         );

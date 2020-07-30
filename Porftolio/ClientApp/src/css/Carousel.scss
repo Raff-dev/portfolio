@@ -1,0 +1,129 @@
+@mixin unselectable {
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+}
+
+.carousel-container {
+    display: block;
+    position: relative;
+
+    .carousel-wrapepr {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+
+        .carousel {
+            display: block;
+            justify-content: center;
+            align-items: center;
+            padding: 10vh 0;
+        }
+    }
+
+    > button {
+        z-index: 10;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 5vh;
+    }
+
+    > .previous {
+        left: 5vw;
+    }
+
+    > .next {
+        right: 5vw;
+    }
+
+    .carousel-nav {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+
+        .dot {
+            margin: 0 0.3vw;
+            width: calc(1.0/var(--count)*30vw);
+            height: 2vh;
+            background-color: #000a;
+            opacity: 0.8;
+            transition: 0.1s ease-out;
+
+            &:hover {
+                margin: 0 1vw;
+                opacity: 0.9;
+                transform: scale(1.1);
+                cursor: pointer;
+            }
+        }
+
+        .active {
+            background-color: rgb(250, 100, 0);
+        }
+    }
+}
+
+.cards {
+    display: grid;
+
+    > .card {
+        grid-area: 1/-1;
+    }
+
+    perspective: 800px;
+    transform-style: preserve-3d;
+}
+
+.card .active:hover {
+    cursor: pointer;
+    background-color: linear-gradient( #0003,#0007);
+    border: 6px red;
+    transform: scale(1.1);
+}
+
+.card {
+    @include unselectable;
+    position: relative;
+    width: 30vw;
+    height: 40vh;
+    background-size: cover;
+    background-position: center center;
+    box-shadow: calc(3px*var(--offset)) -2px 8px 4px #0009;
+    transform: translateX(calc(105%*var(--offset))) rotateY(calc(-15deg*var(--dir)));
+    transition: calc(var(--showTransition)*0.4s);
+    opacity: calc(1 - 0.15 * var(--dirabs));
+
+    &.active {
+        transform: scale(1.1);
+        box-shadow: 0 0 10px #ff6a0088;
+
+        &:hover {
+            transform: scale(1.2);
+            cursor: pointer;
+        }
+    }
+
+
+
+
+
+    span {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%,0);
+        justify-content: center;
+    }
+
+    .title {
+        color: rgba(230, 90, 0,200);
+        text-shadow: calc(var(--dir)*4px) 4px 8px #000a;
+    }
+
+    .description {
+        color: rgba(255, 255, 255,50);
+    }
+}

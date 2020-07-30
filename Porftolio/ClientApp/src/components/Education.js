@@ -7,7 +7,9 @@ export class Education extends Component {
         return (
             <section className="resume-section" id="Education">
                 <div className="resume-section-content">
-                    <h2 className="mb-5">Education</h2>
+                    <span className="title-container">
+                        <h2 className="mb-5">Education</h2>
+                    </span>
                     <div className="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div className="flex-grow-1">
                             <h3 className="mb-0">Military University of Technology</h3>
