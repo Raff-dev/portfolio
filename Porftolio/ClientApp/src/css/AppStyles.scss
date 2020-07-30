@@ -4,6 +4,12 @@
     height: 180px;
 }
 
+.title-container {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
 .about {
     position: relative;
     background: url('background-3.jpg');

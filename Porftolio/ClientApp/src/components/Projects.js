@@ -9,7 +9,7 @@ export class Projects extends Component {
         this.state = {
             projects: [
                 {
-                    imageSrc: "background.png",
+                    image: "background.png",
                     title: 'Title1',
                     subtitle: 'Subitle1',
                     description: 'Description1',
@@ -18,7 +18,7 @@ export class Projects extends Component {
                         'https://watplan.eu.pythonanywhere.com/home/']
                 },
                 {
-                    imageSrc: "background-2.jpg",
+                    image: "background-2.jpg",
                     title: 'Title2',
                     subtitle: 'Subitle2',
                     description: 'Description2',
@@ -27,14 +27,52 @@ export class Projects extends Component {
                         'https://watplan.eu.pythonanywhere.com/home/']
                 },
                 {
-                    imageSrc: "background-3.jpg",
+                    image: "background-3.jpg",
                     title: 'Title3',
                     subtitle: 'Subitle3',
                     description: 'Description3',
                     links: [
                         'https://github.com/Raff-dev/WAT_Plan',
                         'https://watplan.eu.pythonanywhere.com/home/']
-                }],
+                },
+                {
+                    image: "background-4.jpg",
+                    title: 'Title4',
+                    subtitle: 'Subitle4',
+                    description: 'Description2',
+                    links: [
+                        'https://github.com/Raff-dev/WAT_Plan',
+                        'https://watplan.eu.pythonanywhere.com/home/']
+                },
+                {
+                    image: "background-5.jpg",
+                    title: 'Title5',
+                    subtitle: 'Subitle5',
+                    description: 'Description5',
+                    links: [
+                        'https://github.com/Raff-dev/WAT_Plan',
+                        'https://watplan.eu.pythonanywhere.com/home/']
+                },
+                {
+                    image: "background-2.jpg",
+                    title: 'Title6',
+                    subtitle: 'Subitle3',
+                    description: 'Description3',
+                    links: [
+                        'https://github.com/Raff-dev/WAT_Plan',
+                        'https://watplan.eu.pythonanywhere.com/home/']
+                },
+                {
+                    image: "background-3.jpg",
+                    title: 'Title7',
+                    subtitle: 'Subitle4',
+                    description: 'Description2',
+                    links: [
+                        'https://github.com/Raff-dev/WAT_Plan',
+                        'https://watplan.eu.pythonanywhere.com/home/']
+                },
+            ],
+
             loading: true,
         };
 
@@ -50,11 +88,11 @@ export class Projects extends Component {
             <Carousel cards={this.state.projects}></Carousel>;
 
         return (
-            <section class="resume-section" id="Projects">
-                <div class="resume-section-content">
-                    <h2 class="mb-5">Projects</h2>
-                    {contents}
-                </div>
+            <section className="resume-section-projects" id="Projects">
+                <span className="title-container">
+                    <h2 className="mb-5">Projects</h2>
+                </span>
+                {contents}
             </section>
         );
     }

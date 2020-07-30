@@ -1,7 +1,36 @@
+@mixin unselectable {
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+}
+
+.carousel-container {
+    position: relative;
+    background: rgb(60, 55, 55);
+
+    > button {
+        z-index: 10;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 5vh;
+    }
+
+    > .a {
+        left: 5vw;
+    }
+
+    > .b {
+        right: 5vw;
+    }
+}
+
 .carousel {
-    display: flex;
+    display: block;
     justify-content: center;
     align-items: center;
+    padding: 5vh 0;
 }
 
 .cards {
@@ -10,15 +39,26 @@
     > .card {
         grid-area: 1/-1;
     }
+
+    perspective: 800px;
+    transform-style: preserve-3d;
 }
 
+
 .card {
+    @include unselectable;
     position: relative;
     width: 30vw;
     height: 40vh;
-    outline: 5px solid;
-    border-color: red;
-    background: url('background-2.jpg');
+    background-size: cover;
+    background-position: center center;
+    box-shadow: 0 0 2px #ff6a0088;
+    transform: translateX(calc(105%*var(--offset))) rotateY(calc(-15deg*var(--dir)));
+    transition: calc(var(--showTransition)*0.4s);
+}
+
+.card[data-active] {
+    box-shadow: 0 0 4px #ff6a0088;
 }
 
 .card span {
@@ -29,8 +69,8 @@
     justify-content: center;
 }
 
-.card img {
-    width: 30vw;
-    height: 40vh;
-    object-fit: cover;
+.carousel-container {
+    display: flex;
+    justify-content: center;
+    align-content: center;
 }
