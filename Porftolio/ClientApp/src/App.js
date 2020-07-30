@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import { Nav, Navbar, NavItem } from 'react-bootstrap';
-import { Container, Row, Col } from 'react-bootstrap'
+import { NavMenu, ScrollArrow } from './components/NavMenu';
 
-import { SideBar } from './components/SideBar';
 import { About } from './components/About';
 import { Projects } from './components/Projects';
 import { Education } from './components/Education';
@@ -17,15 +15,18 @@ export default class App extends Component {
     render() {
         return (
             <div class="p-0">
+                <NavMenu />
                 <About />
-                <Projects class="pt-2" />
-                <hr class="m-0" />
-                <Education />
-                <hr class="m-0" />
-                <Skills />
-                <hr class="m-0" />
-                <Interests />
-                <SideBar />
+                <div>
+                    <Projects class="pt-2" />
+                    <hr class="m-0" />
+                    <Education />
+                    <hr class="m-0" />
+                    <Skills />
+                    <hr class="m-0" />
+                    <Interests />
+                    <ScrollArrow />
+                </div>
             </div>
         );
     }

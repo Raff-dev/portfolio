@@ -1,6 +1,7 @@
 ﻿import React, { Component } from 'react';
 import { Card } from './Card';
 import { Carousel } from './Carousel';
+import { ScrollArrow } from './NavMenu';
 
 export class Projects extends Component {
 

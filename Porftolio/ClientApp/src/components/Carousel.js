@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import '../css/CarouselStyles.scss'
 
 export class Carousel extends Component {
@@ -20,8 +21,8 @@ export class Carousel extends Component {
 
         return (
             <div className="carousel-container">
-                <button class="a" onClick={() => { this.setState({ activeIndex: prevIndex }) }}>Previous</button>
-                <button class="b" onClick={() => { this.setState({ activeIndex: nextIndex }) }}>Next</button>
+                <button class="previous" onClick={() => { this.setState({ activeIndex: prevIndex }) }}>Previous</button>
+                <button class="next" onClick={() => { this.setState({ activeIndex: nextIndex }) }}>Next</button>
                 <div class="carousel">
                     <div class="cards">
                         {cards.map((card, i) => {

@@ -8,6 +8,9 @@
 .carousel-container {
     position: relative;
     background: rgb(60, 55, 55);
+    display: flex;
+    justify-content: center;
+    align-content: center;
 
     > button {
         z-index: 10;
@@ -17,11 +20,11 @@
         height: 5vh;
     }
 
-    > .a {
+    > .previous {
         left: 5vw;
     }
 
-    > .b {
+    > .next {
         right: 5vw;
     }
 }
@@ -30,7 +33,7 @@
     display: block;
     justify-content: center;
     align-items: center;
-    padding: 5vh 0;
+    padding: 10vh 0;
 }
 
 .cards {
@@ -55,22 +58,16 @@
     box-shadow: 0 0 2px #ff6a0088;
     transform: translateX(calc(105%*var(--offset))) rotateY(calc(-15deg*var(--dir)));
     transition: calc(var(--showTransition)*0.4s);
-}
 
-.card[data-active] {
-    box-shadow: 0 0 4px #ff6a0088;
-}
+    [data-active] {
+        box-shadow: 0 0 4px #ff6a0088;
+    }
 
-.card span {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translate(-50%,0);
-    justify-content: center;
-}
-
-.carousel-container {
-    display: flex;
-    justify-content: center;
-    align-content: center;
+    span {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%,0);
+        justify-content: center;
+    }
 }

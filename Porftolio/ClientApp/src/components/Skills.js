@@ -5,7 +5,7 @@ export class Skills extends Component {
 
     render() {
         return (
-            <section className="resume-section" id="skills">
+            <section className="resume-section" id="Skills">
                 <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
 
                 <div className="resume-section-content">
