@@ -12,21 +12,26 @@ export class Carousel extends Component {
         }
     };
 
-    setIndex = (index) => {
-        this.setState({ activeIndex: index });
+    rotate = (dir) => {
+        const len = this.state.cards.length;
+        const nextIndex = (((this.state.activeIndex + dir) % len) + len) % len;
+        this.setState({ activeIndex: nextIndex });
+    }
+
+    static getOffset(index, activeIndex, length) {
+        let offset = (index - activeIndex);
+        if (offset > Math.floor(length / 2)) offset -= length;
+        else if (offset < -Math.floor(length / 2)) offset += length;
+        return offset;
     }
 
     render() {
         const cards = this.state.cards;
         const len = cards.length;
         const activeIndex = this.state.activeIndex;
-        const prevIndex = (((activeIndex - 1) % len) + len) % len;
-        const nextIndex = (((activeIndex + 1) % len) + len) % len;
 
         return (
             <div className="carousel-container">
-                <button class="previous" onClick={() => this.setIndex(prevIndex)}>Previous</button>
-                <button class="next" onClick={() => this.setIndex(nextIndex)}>Next</button>
                 <div className="carousel-wrapepr">
                     <div class="carousel">
                         <div class="cards">
@@ -41,6 +46,7 @@ export class Carousel extends Component {
                                     card={card}
                                     offset={offset}
                                     dir={dir}
+                                    onClick={this.rotate}
                                     showTransition={showTransition}
                                 />;
                             })}
@@ -50,12 +56,11 @@ export class Carousel extends Component {
                 <CarouselNav
                     cards={cards}
                     activeIndex={activeIndex}
-                    onClick={this.setIndex} />
+                    onClick={this.rotate} />
             </div >
         );
     }
 }
-
 
 function Card(props) {
     const card = props.card;
@@ -65,6 +70,7 @@ function Card(props) {
     let classes = active ? 'card active' : 'card'
     return (
         <div
+            onClick={() => props.onClick(props.dir)}
             className={classes}
             data-active={active}
             style={{
@@ -85,18 +91,21 @@ function Card(props) {
 
 function CarouselNav(props) {
     const cards = props.cards;
+    const activeIndex = props.activeIndex;
+    const length = props.cards.length;
 
     return (
         <nav class="carousel-nav">
             {cards.map((card, index) => {
+                let offset = Carousel.getOffset(index, activeIndex, length);
                 let active = props.activeIndex == index ? true : null;
                 let classes = active ? 'dot active' : 'dot';
-                console.log(index + ' | ' + active + ' | ' + props.activeIndex)
+                console.log(index + ' | ' + active + ' | ' + activeIndex)
 
                 return (
                     <div
                         className={classes}
-                        onClick={() => props.onClick(index)}
+                        onClick={() => props.onClick(offset)}
                         konia-active={active}
                         style={{
                             '--count': cards.length,
