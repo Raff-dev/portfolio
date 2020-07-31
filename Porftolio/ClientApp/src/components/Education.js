@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { NextArrow } from './NavMenu'
+import '../css/Education.scss';
 
 export class Education extends Component {
     displayName = Education.name
@@ -6,26 +8,31 @@ export class Education extends Component {
     render() {
         return (
             <section className="resume-section" id="Education">
-                <div className="resume-section-content">
+                <div className="next-arrow-wrapper">
                     <span className="title-container">
                         <h2 className="mb-5">Education</h2>
                     </span>
-                    <div className="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div className="flex-grow-1">
-                            <h3 className="mb-0">Military University of Technology</h3>
-                            <div className="subheading mb-3">Bachelor of Engineering</div>
-                            <div>Computer Science - Data Analysis</div>
+                    <div className="section-content education">
+                        <div className="entry">
+                            <div className="info">
+                                <h3 className="school">Military University of Technology</h3>
+                                <p className="localization">Warsaw, Poland</p>
+                                <p className="degree">Bachelor of Engineering</p>
+                                <p className="specialisation">Computer Science - Data Analysis</p>
+                            </div>
+                            <div className="flex-shrink-0"><span className="date">October 2018 - February 2022</span></div>
                         </div>
-                        <div className="flex-shrink-0"><span className="text-primary">October 2018 - February 2022</span></div>
-                    </div>
-                    <div className="d-flex flex-column flex-md-row justify-content-between">
-                        <div className="flex-grow-1">
-                            <h3 className="mb-0">Adam Mickiewicz Highschool, Kolno</h3>
-                            <div className="subheading mb-3">Math-Physics Program</div>
+                        <div className="entry">
+                            <div className="info">
+                                <h3 className="school">Adam Mickiewicz Highschool No. 1</h3>
+                                <p className="localization">Kolno, Poland</p>
+                                <p className="degree">Math-Physics Program</p>
+                            </div>
+                            <div className="flex-shrink-0"><span className="date">August 2015 - May 2018</span></div>
                         </div>
-                        <div className="flex-shrink-0"><span className="text-primary">August 2015 - May 2018</span></div>
                     </div>
                 </div>
+                <NextArrow id="Skills" />
             </section>
         );
     }

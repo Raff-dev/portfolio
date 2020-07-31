@@ -67,7 +67,7 @@
     }
 }
 
-.scroll-arrow {
+.to-top-arrow {
     position: -webkit-sticky;
     position: sticky;
     display: flex;
@@ -79,7 +79,32 @@
     font-size: 5vh;
     opacity: 0.8;
 
+    .span:hover {
+        cursor: pointer;
+    }
+}
+
+.to-next-arrow {
+    position: absolute;
+    z-index: 10;
+    bottom: 5vh;
+    display: flex;
+    justify-content: center;
+    transition: 0.2s ease-in-out;
+    font-size: 5vh;
+    animation: bounce 1s infinite alternate;
+
     &:hover {
         cursor: pointer;
+    }
+}
+
+@keyframes bounce {
+    from {
+        transform: translateY(8px);
+    }
+
+    to {
+        transform: translateY(-8px);
     }
 }

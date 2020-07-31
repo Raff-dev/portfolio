@@ -30,7 +30,7 @@ export class NavMenu extends Component {
                             <Link duration={1200} smooth={true} to="Skills">Skills</Link>
                         </NavItem>
                         <NavItem>
-                            <Link duration={1200} smooth={true} to="About">Interests</Link>
+                            <Link duration={1200} smooth={true} to="About">About</Link>
                         </NavItem>
                     </Nav>
                 </Navbar.Collapse>
@@ -40,13 +40,23 @@ export class NavMenu extends Component {
     }
 }
 
-
-export function ScrollArrow(props) {
+export function NextArrow(props) {
     return (
-        <div className="scroll-arrow">
-            <Link onClick={() => scroll.scrollToTop()} duration={800}>
-                <Glyphicon glyph="circle-arrow-up" />
+        <div className="to-next-arrow">
+            <Link to={props.id} duration={800} smooth={true}>
+                <Glyphicon glyph="menu-down" />
             </Link>
+        </div>
+    );
+}
+export function TopArrow() {
+    return (
+        <div className="to-top-arrow">
+            <div>
+                <Link onClick={() => scroll.scrollToTop()} duration={800}>
+                    <Glyphicon glyph="circle-arrow-up" />
+                </Link>
+            </div>
         </div>
     );
 }

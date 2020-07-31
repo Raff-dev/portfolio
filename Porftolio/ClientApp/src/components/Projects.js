@@ -1,5 +1,7 @@
 ﻿import React, { Component } from 'react';
 import { Carousel } from './Carousel';
+import { NextArrow } from './NavMenu'
+
 
 export class Projects extends Component {
 
@@ -87,11 +89,14 @@ export class Projects extends Component {
             <Carousel cards={this.state.projects}></Carousel>;
 
         return (
-            <section className="resume-section-projects" style={{ height: '100vh' }} id="Projects">
-                <span className="title-container">
-                    <h2 className="mb-5">Projects</h2>
-                </span>
-                {contents}
+            <section className="resume-section projects" style={{ height: '100vh' }} id="Projects">
+                <div className="next-arrow-wrapper">
+                    <span className="title-container">
+                        <h2 className="mb-5">Projects</h2>
+                    </span>
+                    {contents}
+                </div>
+                <NextArrow id="About" />
             </section>
         );
     }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { NavMenu, ScrollArrow } from './components/NavMenu';
+import { NavMenu, TopArrow } from './components/NavMenu';
 
 import { Home } from './components/Home';
 import { Projects } from './components/Projects';
@@ -20,12 +20,12 @@ export default class App extends Component {
                 <div>
                     <Projects class="pt-2" />
                     <hr class="m-0" />
+                    <About />
+                    <hr class="m-0" />
                     <Education />
                     <hr class="m-0" />
                     <Skills />
-                    <hr class="m-0" />
-                    <About />
-                    <ScrollArrow />
+                    <TopArrow />
                 </div>
             </div>
         );
