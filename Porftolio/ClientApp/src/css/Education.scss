@@ -1,0 +1,63 @@
+﻿.education {
+    max-width: 1000px;
+
+    .entry {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 5vh;
+
+        .info {
+            font-family: "Roboto";
+
+            .school {
+                margin: 0;
+                margin-bottom: 10px;
+                font-weight: 600;
+            }
+
+            .localization {
+                display: inline-block;
+                position: relative;
+                font-size: 1.5rem;
+                font-style: italic;
+                font-weight: 600;
+                text-align: center;
+                color: #000d;
+                margin-left: 2rem;
+
+                &:before {
+                    position: absolute;
+                    left: -2rem;
+                    background-image: url('localization.png');
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                    background-size: 1.5rem 1.5rem;
+                    display: inline-block;
+                    justify-content: center;
+                    align-content: center;
+                    width: 1.5rem;
+                    height: 1.5rem;
+                    content: "";
+                    opacity: 0.6;
+                    object-fit: contain;
+                }
+            }
+
+            .degree {
+            }
+
+            .specialisation {
+            }
+        }
+
+        .date {
+            color: rgba(250,100,0,230);
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .education .entry {
+        display: block;
+    }
+}

@@ -52,6 +52,11 @@
             opacity: 0.8;
             transition: 0.1s ease-out;
 
+            @media (max-width: 767px) {
+                width: calc(1.0/var(--count)*70vw);
+                margin: 0 calc(1.0/var(--count)*10vw);
+            }
+
             &:hover {
                 margin: 0 1vw;
                 opacity: 0.9;
@@ -77,13 +82,6 @@
     transform-style: preserve-3d;
 }
 
-.card .active:hover {
-    cursor: pointer;
-    background-color: linear-gradient( #0003,#0007);
-    border: 6px red;
-    transform: scale(1.1);
-}
-
 .card {
     @include unselectable;
     position: relative;
@@ -96,6 +94,15 @@
     transition: calc(var(--showTransition)*0.4s);
     opacity: calc(1 - 0.15 * var(--dirabs));
 
+    @media (max-width: 767px) {
+        width: 40vw;
+        height: 30vh;
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+
     &.active {
         transform: scale(1.1);
         box-shadow: 0 0 10px #ff6a0088;
@@ -105,10 +112,6 @@
             cursor: pointer;
         }
     }
-
-
-
-
 
     span {
         position: absolute;
