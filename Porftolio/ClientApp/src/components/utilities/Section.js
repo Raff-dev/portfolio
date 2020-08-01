@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { NextArrow } from './Navigation'
 
 export function Section(props) {

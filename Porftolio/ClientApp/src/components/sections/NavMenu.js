@@ -1,5 +1,5 @@
 import React from 'react';
-import { Nav, Navbar, NavItem, Glyphicon } from 'react-bootstrap';
+import { Nav, Navbar, NavItem } from 'react-bootstrap';
 import { Link } from 'react-scroll'
 
 export function NavMenu({ sections }) {

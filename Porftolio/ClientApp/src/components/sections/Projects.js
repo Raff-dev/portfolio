@@ -11,8 +11,26 @@ export class Projects extends Component {
             nextSectionName: props.nextSectionName,
             projects: [
                 {
-                    image: "background.png",
-                    title: 'Title1',
+                    image: "watplan.png",
+                    title: 'Wat Plan',
+                    subtitle: 'Subitle3',
+                    description: 'Description3',
+                    links: [
+                        'https://github.com/Raff-dev/WAT_Plan',
+                        'https://watplan.eu.pythonanywhere.com/home/']
+                },
+                {
+                    image: "toster.gif",
+                    title: 'Toster',
+                    subtitle: 'Subitle3',
+                    description: 'Description3',
+                    links: [
+                        'https://github.com/Raff-dev/WAT_Plan',
+                        'https://watplan.eu.pythonanywhere.com/home/']
+                },
+                {
+                    image: "lz77.png",
+                    title: 'LZ77',
                     subtitle: 'Subitle1',
                     description: 'Description1',
                     links: [
@@ -20,26 +38,8 @@ export class Projects extends Component {
                         'https://watplan.eu.pythonanywhere.com/home/']
                 },
                 {
-                    image: "background-2.jpg",
-                    title: 'Title2',
-                    subtitle: 'Subitle2',
-                    description: 'Description2',
-                    links: [
-                        'https://github.com/Raff-dev/WAT_Plan',
-                        'https://watplan.eu.pythonanywhere.com/home/']
-                },
-                {
-                    image: "background-3.jpg",
-                    title: 'Title3',
-                    subtitle: 'Subitle3',
-                    description: 'Description3',
-                    links: [
-                        'https://github.com/Raff-dev/WAT_Plan',
-                        'https://watplan.eu.pythonanywhere.com/home/']
-                },
-                {
-                    image: "background-4.jpg",
-                    title: 'Title4',
+                    image: "tetris.gif",
+                    title: 'Tetris',
                     subtitle: 'Subitle4',
                     description: 'Description2',
                     links: [
@@ -47,26 +47,18 @@ export class Projects extends Component {
                         'https://watplan.eu.pythonanywhere.com/home/']
                 },
                 {
-                    image: "background-5.jpg",
-                    title: 'Title5',
+                    image: "portfolio.png",
+                    title: 'Portfolio',
                     subtitle: 'Subitle5',
                     description: 'Description5',
                     links: [
                         'https://github.com/Raff-dev/WAT_Plan',
                         'https://watplan.eu.pythonanywhere.com/home/']
                 },
+
                 {
-                    image: "background-2.jpg",
-                    title: 'Title6',
-                    subtitle: 'Subitle3',
-                    description: 'Description3',
-                    links: [
-                        'https://github.com/Raff-dev/WAT_Plan',
-                        'https://watplan.eu.pythonanywhere.com/home/']
-                },
-                {
-                    image: "background-3.jpg",
-                    title: 'Title7',
+                    image: "boids.gif",
+                    title: 'Boids',
                     subtitle: 'Subitle4',
                     description: 'Description2',
                     links: [

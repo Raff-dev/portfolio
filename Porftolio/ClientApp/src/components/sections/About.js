@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import { NextArrow } from './NavMenu'
+import React from 'react';
 import { Section } from '../utilities/Section';
 
 export function About({ nextSectionName }) {

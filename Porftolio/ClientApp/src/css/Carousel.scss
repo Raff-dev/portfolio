@@ -87,43 +87,95 @@
     position: relative;
     width: 30vw;
     height: 40vh;
-    background-size: cover;
-    background-position: center center;
+    background-color: rgba(0,0,0,0.3);
     box-shadow: calc(3px*var(--offset)) -2px 8px 4px #0009;
     transform: translateX(calc(105%*var(--offset))) rotateY(calc(-15deg*var(--dir)));
     transition: calc(var(--showTransition)*0.4s);
-    opacity: calc(1 - 0.15 * var(--dirabs));
 
     @media (max-width: 767px) {
-        width: 40vw;
+        width: 50vw;
         height: 30vh;
+
+        .click-hint {
+            display: none;
+        }
+    }
+
+    .card-image {
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center center;
+        opacity: calc(1 - 0.15 * var(--dirabs));
     }
 
     &:hover {
         cursor: pointer;
     }
 
-    &.active {
-        transform: scale(1.1);
-        box-shadow: 0 0 10px #ff6a0088;
 
-        &:hover {
-            transform: scale(1.2);
-            cursor: pointer;
+    .click-hint {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        justify-content: center;
+        text-align: center;
+        opacity: 0;
+        transition: 0.3s ease-in-out;
+        background-color: #0007;
+
+        p {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            font-family: 'Roboto';
+            font-size: 1.5rem;
+            color: rgb(255, 255, 255);
         }
     }
 
-    span {
+
+    &[data-active=true] {
+        box-shadow: 0 0 10px #ff6a0088;
+
+        &[data-modal=true] {
+            width: 90vw;
+            height: 80vh;
+            background-color: rgba(0,0,0,0.7);
+        }
+
+        &[data-modal=false] {
+            transform: scale(1.1);
+
+            &:hover {
+                transform: scale(1.2);
+                cursor: pointer;
+
+                .click-hint {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    .title-container {
         position: absolute;
-        bottom: 0;
+        top: -30%;
         left: 50%;
         transform: translate(-50%,0);
         justify-content: center;
-    }
 
-    .title {
-        color: rgba(230, 90, 0,200);
-        text-shadow: calc(var(--dir)*4px) 4px 8px #000a;
+        @media (max-width: 767px) {
+            top: -55%;
+        }
+
+        .title {
+            text-align: center;
+            color: rgba(230, 90, 0,200);
+            text-shadow: calc(var(--dir)*4px) 4px 8px #000a;
+        }
     }
 
     .description {

@@ -11,7 +11,7 @@ export class Home extends Component {
             <section className="resume-section Home" id="Home">
                 <div className="section-content">
                     <h1 className="name mb-0">
-                        My name is Rafal<span class="surname"> Lazicki.</span>
+                        My name is Rafal<span className="surname"> Lazicki.</span>
                     </h1>
                     <span>
                         <p className="description mb-5">I'am a 3rd year computer science student.</p>
