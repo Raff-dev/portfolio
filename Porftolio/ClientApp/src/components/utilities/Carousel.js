@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-import '../css/Carousel.scss'
-
 export class Carousel extends Component {
     constructor(props) {
         super(props);
@@ -79,7 +77,6 @@ function Card(props) {
                 '--dirabs': Math.abs(props.dir),
                 '--showTransition': props.showTransition,
                 backgroundImage: `url('${card.image}')`,
-                //opacity: 1 - 0.15 * Math.abs(props.offset)
             }}>
             <span>
                 <h3 className="title">{card.title}</h3>
@@ -100,7 +97,6 @@ function CarouselNav(props) {
                 let offset = Carousel.getOffset(index, activeIndex, length);
                 let active = props.activeIndex == index ? true : null;
                 let classes = active ? 'dot active' : 'dot';
-                console.log(index + ' | ' + active + ' | ' + activeIndex)
 
                 return (
                     <div

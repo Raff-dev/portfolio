@@ -1,13 +1,14 @@
 ﻿import React, { Component } from 'react';
-import { Carousel } from './Carousel';
-import { NextArrow } from './NavMenu'
-
+import { Carousel } from '../utilities/Carousel';
+import { Section } from '../utilities/Section';
 
 export class Projects extends Component {
+    displayName = Projects.name
 
     constructor(props) {
         super(props);
         this.state = {
+            nextSectionName: props.nextSectionName,
             projects: [
                 {
                     image: "background.png",
@@ -85,19 +86,14 @@ export class Projects extends Component {
     }
 
     render() {
-        let contents =
-            <Carousel cards={this.state.projects}></Carousel>;
+        let content = <Carousel cards={this.state.projects}></Carousel>;
 
         return (
-            <section className="resume-section projects" style={{ height: '100vh' }} id="Projects">
-                <div className="next-arrow-wrapper">
-                    <span className="title-container">
-                        <h2 className="mb-5">Projects</h2>
-                    </span>
-                    {contents}
-                </div>
-                <NextArrow id="About" />
-            </section>
+            <Section
+                content={content}
+                sectionName={this.displayName}
+                nextSectionName={this.state.nextSectionName}
+            />
         );
     }
 }

@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import { Glyphicon } from 'react-bootstrap'
-import { Link } from 'react-scroll'
+
 import { SocialIcon } from 'react-social-icons';
-import { NextArrow } from './NavMenu'
-import '../css/Home.scss';
+import { NextArrow } from '../utilities/Navigation'
 
 export class Home extends Component {
     displayName = Home.name

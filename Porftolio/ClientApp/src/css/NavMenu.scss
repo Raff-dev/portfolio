@@ -19,12 +19,17 @@
 
     a {
         text-transform: uppercase;
-        font-size: 16px;
+        font-size: 1.5rem;
         font-family: 'Roboto';
         font-weight: 500;
         transition: 0.05s ease-out;
         color: rgba(255, 255, 255,50);
         opacity: 0.85;
+
+        &[role="button"] {
+            margin: 10px 15px;
+            padding: 0;
+        }
 
         &:hover {
             text-decoration: none;
@@ -33,8 +38,9 @@
         }
     }
 
-    .home {
+    .Home-link {
         color: rgb(250, 100, 0);
+        font-weight: 600;
     }
 }
 

@@ -1,4 +1,4 @@
-﻿.education {
+﻿.timeline {
     max-width: 1000px;
 
     .entry {
@@ -9,7 +9,7 @@
         .info {
             font-family: "Roboto";
 
-            .school {
+            .title {
                 margin: 0;
                 margin-bottom: 10px;
                 font-weight: 600;
@@ -43,10 +43,10 @@
                 }
             }
 
-            .degree {
+            .description {
             }
 
-            .specialisation {
+            .content {
             }
         }
 
