@@ -19,7 +19,11 @@
             display: block;
             justify-content: center;
             align-items: center;
-            padding: 10vh 0;
+            padding: 5vh 0 10vh 0;
+
+            &[data-modal=true]{
+                padding-top: 0;
+            }
         }
     }
 
@@ -161,17 +165,16 @@
     }
 
     .title-container {
+        padding: 0;
         position: absolute;
-        top: -30%;
+        top: 0;
         left: 50%;
-        transform: translate(-50%,0);
+        transform: translate(-50%,-100%);
         justify-content: center;
 
-        @media (max-width: 767px) {
-            top: -55%;
-        }
 
         .title {
+            margin-top: 0;
             text-align: center;
             color: rgba(230, 90, 0,200);
             text-shadow: calc(var(--dir)*4px) 4px 8px #000a;

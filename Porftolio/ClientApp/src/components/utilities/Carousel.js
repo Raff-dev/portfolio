@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-scroll'
 
 export class Carousel extends Component {
     constructor(props) {
@@ -12,9 +13,9 @@ export class Carousel extends Component {
         }
     };
 
-    select = (dir, isNav) => {
-        if (dir === 0 && !isNav) {
-            this.setState({ modalActive: !this.state.modalActive });
+    select = (dir) => {
+        if (dir === 0 & !this.state.modalActive) {
+            this.setState({ modalActive: true });
         }
         else if (!this.state.modalActive) {
             const len = this.state.cards.length;
@@ -24,11 +25,6 @@ export class Carousel extends Component {
                 clickDir: dir,
             });
         }
-    }
-
-    closeModal = () => {
-        console.log('close');
-        this.setState({ modalActive: false });
     }
 
     static getOffset(index, activeIndex, length) {
@@ -60,19 +56,20 @@ export class Carousel extends Component {
                                     offset={offset}
                                     dir={dir}
                                     onClick={this.select}
-                                    onClose={this.closeModal}
+                                    onClose={() => this.setState({ modalActive: false })}
                                     modalActive={this.state.modalActive}
                                     showTransition={showTransition}
-
                                 />;
                             })}
                         </div>
                     </div>
                 </div>
-                <CarouselNav
-                    cards={cards}
-                    activeIndex={activeIndex}
-                    onClick={this.select} />
+                {!this.state.modalActive &&
+                    <CarouselNav
+                        cards={cards}
+                        activeIndex={activeIndex}
+                        onClick={this.select} />
+                }
             </div >
         );
     }
@@ -85,8 +82,12 @@ function Card(props) {
     offset = (props.modalActive && offset !== 0) ? (10 * offset) : offset;
 
     return (
-        <div
-            onClick={() => props.onClick(props.dir, false)}
+        <Link
+            to={(active && !props.modalActive)
+                ? card.title.replace(/ /g, '')
+                : null}
+            duration={300}
+            onClick={() => props.onClick(props.dir)}
             className="card"
             data-active={active}
             data-modal={props.modalActive}
@@ -95,7 +96,8 @@ function Card(props) {
                 '--dir': props.dir,
                 '--dirabs': Math.abs(props.dir),
                 '--showTransition': props.showTransition,
-            }}>
+            }
+            }>
             <div
                 className="card-image"
                 style={{
@@ -103,19 +105,25 @@ function Card(props) {
                 }}
             ></div>
             <span className="title-container">
-                <h3 className="title">{card.title}</h3>
+                <h3 className="title" id={card.title.replace(/ /g, '')}>{card.title}</h3>
             </span>
-            {props.modalActive && active &&
-                <div className="close-button" onClick={props.onClose}>
+            {
+                props.modalActive && active &&
+                <Link
+                    to={'Projects'}
+                    duration={300}
+                    className="close-button"
+                    onClick={props.onClose}>
                     <span>CLOSE</span>
-                </div>
+                </Link>
             }
-            {!props.modalActive &&
+            {
+                !props.modalActive &&
                 <div className="click-hint">
                     <p>CLICK ME</p>
                 </div>
             }
-        </div >
+        </Link >
     );
 }
 
@@ -134,7 +142,7 @@ function CarouselNav(props) {
                 return (
                     <div
                         className={classes}
-                        onClick={() => props.onClick(offset, true)}
+                        onClick={() => props.onClick(offset)}
                         style={{
                             '--count': cards.length,
                         }}>

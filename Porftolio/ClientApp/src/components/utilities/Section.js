@@ -9,7 +9,7 @@ export function Section(props) {
     return (
         <section className="resume-section" id={sectionName}>
             <div className="next-arrow-wrapper">
-                <span className="title-container">
+                <span className="section-title-container">
                     <h2 className="section-name">{sectionName}</h2>
                 </span>
                 {content}

@@ -93,12 +93,12 @@
 .to-next-arrow {
     position: absolute;
     z-index: 10;
-    bottom: 5vh;
+    bottom: 3vh;
     display: flex;
     justify-content: center;
     transition: 0.2s ease-in-out;
-    font-size: 5vh;
-    animation: bounce 1s infinite alternate;
+    font-size: 40px;
+    animation: bounce 0.8s infinite alternate ease-in;
 
     &:hover {
         cursor: pointer;
@@ -109,8 +109,7 @@
     from {
         transform: translateY(8px);
     }
-
     to {
-        transform: translateY(-8px);
+        transform: translateY(24px);
     }
 }
