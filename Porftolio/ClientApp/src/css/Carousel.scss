@@ -20,10 +20,6 @@
             justify-content: center;
             align-items: center;
             padding: 5vh 0 10vh 0;
-
-            &[data-modal=true]{
-                padding-top: 0;
-            }
         }
     }
 
@@ -60,6 +56,11 @@
                 width: calc(1.0/var(--count)*70vw);
                 margin: 0 calc(1.0/var(--count)*10vw);
             }
+            &[data-modal=true]{
+                transition: 0.3s ease-in;
+                transition-delay: calc(var(--index)*0.04s);
+                transform:translateX(-100vw);
+            }
 
             &:hover {
                 margin: 0 1vw;
@@ -67,6 +68,7 @@
                 transform: scale(1.1);
                 cursor: pointer;
             }
+          
         }
 
         .active {
@@ -89,34 +91,101 @@
 .card {
     @include unselectable;
     position: relative;
-    width: 30vw;
-    height: 40vh;
+    --card-height-initial : 40vh;
+    --card-width-initial : 30vw;
+    height: var(--card-height-initial);
+    width: var(--card-width-initial);
     background-color: rgba(0,0,0,0.3);
     box-shadow: calc(3px*var(--offset)) -2px 8px 4px #0009;
     transform: translateX(calc(105%*var(--offset))) rotateY(calc(-15deg*var(--dir)));
     transition: calc(var(--showTransition)*0.4s);
+    text-decoration: none;
 
     @media (max-width: 767px) {
-        width: 50vw;
-        height: 30vh;
-
+        --card-height-initial : 50vh;
+        --card-width-initial : 30vw;
+        height: var(--card-height-initial);
+        width: var(--card-width-initial);
         .click-hint {
             display: none;
         }
     }
-
-    .card-image {
+    .image-wrapper{
         width: 100%;
         height: 100%;
-        background-size: cover;
-        background-position: center center;
-        opacity: calc(1 - 0.15 * var(--dirabs));
-    }
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        transition: 0.3s ease-in-out ;
+        
+        &[data-modal=true]{
+            height: 50%;
+            margin: 5px 0;
+        }
+        .card-image {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center center;
+            opacity: calc(1 - 0.15 * var(--dirabs));
+            transition: 1s ease-in-out delay 0.3s;
 
+            &[data-modal=true]{
+                background-size: contain;
+                background-repeat: no-repeat;
+            }
+        }
+    }
     &:hover {
         cursor: pointer;
     }
+    ::-webkit-scrollbar {
+        width: 0px;
+        background: transparent; /* make scrollbar transparent */
+    }
+    .description{
+        height: 25vh;
+        overflow-y: scroll;
+        padding: 0 2% 2% 2%;
+        text-align: center;
+        color: rgba(255, 255, 255,50);
+    }
+    .modal-items{
+        transform: scale(0);
+        animation:getin 0.4s ease-out forwards ;
+        animation-delay: 0.3s;
+    }
+    @keyframes getin {
+        to{
+            transform:scaleY(1);
+        }
+    }
+    .close-button-wrapper{
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
+        .close-button{
+            width: min-content;
+            height: min-content;
+            padding: 2vh 10vw;
+            background-color: rgb(190,90,0);
+            border-radius: 10px;
+            color:rgb(255, 255, 255);
+            transition: 0.2s ease-out;
+            animation:none;
+
+            span{
+                font-size: 1.5rem;
+                font-weight: 500;
+                font-family: 'Roboto';
+
+                &:hover{
+                    text-decoration: none;
+                }
+            }
+        }
+    }
 
     .click-hint {
         position: absolute;
@@ -140,14 +209,29 @@
         }
     }
 
+    &[data-active=false] {
+        &[data-modal=true] {
+            transition: 1.5s ease-in-out;
+        }
+    }
 
     &[data-active=true] {
         box-shadow: 0 0 10px #ff6a0088;
-
         &[data-modal=true] {
-            width: 90vw;
-            height: 80vh;
+            animation: grow forwards 0.8s;
             background-color: rgba(0,0,0,0.7);
+            transition: 0.6s ease-out;
+
+        }
+        @keyframes grow {
+            from{
+                height: var(--card-height-initial);
+                width: var(--card-width-initial);
+            }
+            to{
+                width: 90vw;
+                min-height: 80vh;
+            }
         }
 
         &[data-modal=false] {
@@ -181,7 +265,4 @@
         }
     }
 
-    .description {
-        color: rgba(255, 255, 255,50);
-    }
 }

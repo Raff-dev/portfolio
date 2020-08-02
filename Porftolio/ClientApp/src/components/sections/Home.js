@@ -21,9 +21,9 @@ export class Home extends Component {
                         <p>+48 504 854 839</p>
                     </div>
                     <div className="social-icons">
-                        <SocialIcon url="https://www.linkedin.com/in/rlazicki/" />
-                        <SocialIcon url="https://www.facebook.com/RaffUsername/" />
-                        <SocialIcon url="https://github.com/Raff-dev" />
+                        <SocialIcon url="https://www.linkedin.com/in/rlazicki/" bgColor="rgb(0, 127, 177)" />
+                        <SocialIcon url="https://www.facebook.com/RaffUsername/" bgColor="rgb(0, 127, 177)" />
+                        <SocialIcon url="https://github.com/Raff-dev/" bgColor="rgb(0, 127, 177)" />
                     </div>
                 </div>
                 <NextArrow id="Projects" />

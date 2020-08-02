@@ -12,7 +12,7 @@ export class Projects extends Component {
             projects: [
                 {
                     image: "watplan.png",
-                    title: 'Wat Plan',
+                    title: 'WatPlan',
                     subtitle: 'Subitle3',
                     description: 'Description3',
                     links: [

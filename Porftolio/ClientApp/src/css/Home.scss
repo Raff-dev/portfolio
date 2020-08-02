@@ -81,37 +81,44 @@
             color: rgb(255, 106, 0);
         }
     }
-
-    .social-icons {
-        display: flex;
-        margin: 2rem 0;
-        justify-content: center;
-        transition: 0.4s ease-in-out;
-
-        a {
-            margin: 0 2rem;
-            filter: saturate(0.7);
-
-            &:hover {
-                transform: scale(1.15);
-                animation: select 0.4s ease-out forwards;
-            }
-        }
-
-        .social-svg {
-            opacity: 0.9;
-        }
-    }
 }
 
 @keyframes select {
     0% {
         margin: 0 2rem;
-        filter: saturate(0.7);
     }
 
     100% {
         margin: 0 2.3rem;
+        filter: saturate(3);
+    }
+}
+
+.social-icons {
+    display: flex;
+    margin: 2rem 0;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s ease-in-out;
+
+    .social-icon{
+        height: 2rem;
+    }
+    a {
         filter: saturate(1.2);
+
+        margin: 0 2rem;
+
+        &:hover {
+            transform: scale(1.15);
+            animation: select 0.4s ease-out forwards;
+        }
+    }
+
+    .social-svg {
+        color:rgb(62, 144, 192);
+        color:rgb(0, 127, 177);
+        color:rgb(65, 131, 196);
+        opacity: 0.9;
     }
 }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-scroll'
+import { SocialIcon } from 'react-social-icons';
 
 export class Carousel extends Component {
     constructor(props) {
@@ -64,12 +65,11 @@ export class Carousel extends Component {
                         </div>
                     </div>
                 </div>
-                {!this.state.modalActive &&
-                    <CarouselNav
-                        cards={cards}
-                        activeIndex={activeIndex}
-                        onClick={this.select} />
-                }
+                <CarouselNav
+                    modalActive={this.state.modalActive}
+                    cards={cards}
+                    activeIndex={activeIndex}
+                    onClick={this.select} />
             </div >
         );
     }
@@ -78,7 +78,7 @@ export class Carousel extends Component {
 function Card(props) {
     var offset = props.offset;
     const card = props.card;
-    const active = offset === 0 ? true : null;
+    const active = offset === 0 ? true : false;
     offset = (props.modalActive && offset !== 0) ? (10 * offset) : offset;
 
     return (
@@ -87,6 +87,7 @@ function Card(props) {
                 ? card.title.replace(/ /g, '')
                 : null}
             duration={300}
+            smooth={true}
             onClick={() => props.onClick(props.dir)}
             className="card"
             data-active={active}
@@ -98,24 +99,51 @@ function Card(props) {
                 '--showTransition': props.showTransition,
             }
             }>
-            <div
-                className="card-image"
-                style={{
-                    backgroundImage: `url('${card.image}')`,
-                }}
-            ></div>
             <span className="title-container">
                 <h3 className="title" id={card.title.replace(/ /g, '')}>{card.title}</h3>
             </span>
+            <div className="image-wrapper" data-modal={props.modalActive}>
+                <div
+                    data-active={active}
+                    data-modal={props.modalActive}
+                    className="card-image"
+                    style={{
+                        backgroundImage: `url('${card.image}')`,
+                    }}
+                ></div>
+            </div>
             {
                 props.modalActive && active &&
-                <Link
-                    to={'Projects'}
-                    duration={300}
-                    className="close-button"
-                    onClick={props.onClose}>
-                    <span>CLOSE</span>
-                </Link>
+                <div className="modal-items">
+                    <div>
+                        <div className="description">
+                            <span>
+                                This is a sample description of the itemThis is
+                                a sample description of the itemThis is a sample description of the
+                                itemThis is a sample description of the item  This is a sample description of the itemThis is
+                                a sample description of the itemThis is a sample description of the
+                                itemThis is a sample description of the item  This is a sample description of the itemThis is
+                                a sample description of the itemThis is a sample description of the
+                                itemThis is a sample description of the item
+                            </span>
+                        </div>
+                        <div className="social-icons">
+                            <SocialIcon url="https://github.com/Raff-dev/" bgColor="rgb(255,255,255)" style={{ height: 35, width: 35 }} />
+                            <div className="close-button-wrapper">
+                                <Link
+                                    to={'Projects'}
+                                    duration={300}
+                                    smooth={true}
+                                    className="close-button"
+                                    onClick={props.onClose}>
+                                    <span>CLOSE</span>
+                                </Link>
+                            </div>
+                            <SocialIcon url="https://www.jbzd.pl/" bgColor="rgb(255,255,255)" style={{ height: 35, width: 35 }} />
+                        </div>
+                    </div>
+
+                </div>
             }
             {
                 !props.modalActive &&
@@ -133,7 +161,7 @@ function CarouselNav(props) {
     const length = props.cards.length;
 
     return (
-        <nav className="carousel-nav">
+        <nav className="carousel-nav" data-modal={props.modalActive}>
             {cards.map((card, index) => {
                 let offset = Carousel.getOffset(index, activeIndex, length);
                 let active = props.activeIndex === index ? true : null;
@@ -141,10 +169,12 @@ function CarouselNav(props) {
 
                 return (
                     <div
+                        data-modal={props.modalActive}
                         className={classes}
                         onClick={() => props.onClick(offset)}
                         style={{
                             '--count': cards.length,
+                            '--index': index,
                         }}>
                     </div>
                 );
