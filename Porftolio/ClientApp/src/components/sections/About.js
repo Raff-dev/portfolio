@@ -2,10 +2,34 @@ import React from 'react';
 import { Section } from '../utilities/Section';
 
 export function About({ nextSectionName }) {
+    const info = {
+        photo: 'photo.png',
+        paragraphs: ["Apart from studying and programing, \
+        I am definitely a sport loving person. \
+        My main passion is powerlifting, which started\
+        in 2015 as a casual gym visit, and developed into\
+        national level competitive journey.",
+            "I enjoy spending my spare time biking or discovering \
+        new types of craft beer along with my friends, and \
+        personally, I can't imagine a better day start, \
+        but a one, that begins with a cup of black coffee \
+        accompanied by a sci-fi novel."],
+    }
+
     const content =
-        <div className="section-content timeline">
-            <p>Apart from being a web developer, I enjoy most of my time being outdoors. In the winter, I am an avid skier and novice ice climber. During the warmer months here in Colorado, I enjoy mountain biking, free climbing, and kayaking.</p>
-            <p className="mb-0">When forced indoors, I follow a number of sci-fi and fantasy genre movies and television shows, I am an aspiring chef, and I spend a large amount of my free time exploring the latest technology advancements in the front-end web development world.</p>
+        <div className="section-content about">
+            <div className="photo-container">
+                <div className="photo-frame">
+                    <img className="photo"
+                        src={info.photo}>
+                    </img>
+                </div>
+            </div>
+            <div className="bio-container">
+                {info.paragraphs.map((paragraph, index) => {
+                    return <p className="bio">{paragraph}</p>
+                })}
+            </div>
         </div>
 
     return (

@@ -11,6 +11,7 @@ import { TopArrow } from './components/utilities/Navigation';
 import './css/App.scss';
 import './css/Carousel.scss';
 import './css/Home.scss';
+import './css/About.scss';
 import './css/NavMenu.scss';
 import './css/Section.scss';
 import './css/TimeLine.scss';
@@ -23,25 +24,36 @@ export default class App extends Component {
         super(props);
         this.state = {
             sections: [
-                'Home', 'Projects', 'Education', 'Experience', 'Skills', 'About']
+                'Home', 'About', 'Skills', 'Education', 'Experience', 'Projects']
         }
     }
 
+    getNextSection = section => {
+        const sections = this.state.sections
+        for (let i in sections) {
+            console.log(i)
+            if (sections[i] === section && i < sections.length)
+                return sections[i + 1];
+        }
+        return null;
+    }
+
     render() {
+        const sections = this.state.sections;
         return (
             <div class="p-0">
                 <NavMenu sections={this.state.sections} />
                 <Home />
                 <div>
-                    <Projects nextSectionName="Education" />
+                    <Projects nextSectionName={sections[1]} />
                     <hr class="m-0" />
-                    <Education nextSectionName="Experience" />
+                    <About nextSectionName={sections[2]} />
                     <hr class="m-0" />
-                    <Experience nextSectionName="Skills" />
+                    <Skills nextSectionName={sections[3]} />
                     <hr class="m-0" />
-                    <Skills nextSectionName="About" />
+                    <Education nextSectionName={sections[4]} />
                     <hr class="m-0" />
-                    <About nextSectionName={null} />
+                    <Experience nextSectionName={null} />
                     <TopArrow />
                 </div>
             </div>
