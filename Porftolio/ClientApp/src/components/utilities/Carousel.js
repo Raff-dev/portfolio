@@ -51,12 +51,11 @@ export class Carousel extends Component {
                                 else if (offset < -Math.floor(len / 2)) offset += len;
                                 let dir = offset === 0 ? 0 : offset / Math.abs(offset);
                                 let showTransition = Math.abs(offset + this.state.clickDir) <= 2 ? 1 : 0;
-
                                 return <Card
                                     card={card}
                                     offset={offset}
                                     dir={dir}
-                                    onClick={this.select}
+                                    onClick={this.state.modalActive ? () => { } : this.select}
                                     onClose={() => this.setState({ modalActive: false })}
                                     modalActive={this.state.modalActive}
                                     showTransition={showTransition}
@@ -81,8 +80,9 @@ function Card(props) {
     const active = offset === 0 ? true : false;
     offset = (props.modalActive && offset !== 0) ? (10 * offset) : offset;
 
-    return (
-        <Link
+    return Math.abs(offset) > 3
+        ? null
+        : (<Link
             to={(active && !props.modalActive)
                 ? card.title.replace(/ /g, '')
                 : null}
@@ -117,18 +117,15 @@ function Card(props) {
                 <div className="modal-items">
                     <div>
                         <div className="description">
-                            <span>
-                                This is a sample description of the itemThis is
-                                a sample description of the itemThis is a sample description of the
-                                itemThis is a sample description of the item  This is a sample description of the itemThis is
-                                a sample description of the itemThis is a sample description of the
-                                itemThis is a sample description of the item  This is a sample description of the itemThis is
-                                a sample description of the itemThis is a sample description of the
-                                itemThis is a sample description of the item
-                            </span>
+                            <p>{card.description}</p>
                         </div>
-                        <div className="social-icons">
-                            <SocialIcon url="https://github.com/Raff-dev/" bgColor="rgb(255,255,255)" style={{ height: 35, width: 35 }} />
+                        <div className="modal-buttons">
+                            <div className="social-icons">
+                                <SocialIcon url="https://github.com/Raff-dev/" bgColor="rgb(255,255,255)" style={{ height: 35, width: 35 }} />
+                            </div>
+                            <div className="social-icons">
+                                <SocialIcon url="https://www.jbzd.pl/" bgColor="rgb(255,255,255)" style={{ height: 35, width: 35 }} />
+                            </div>
                             <div className="close-button-wrapper">
                                 <Link
                                     to={'Projects'}
@@ -136,13 +133,11 @@ function Card(props) {
                                     smooth={true}
                                     className="close-button"
                                     onClick={props.onClose}>
-                                    <span>CLOSE</span>
+                                    <span>+</span>
                                 </Link>
                             </div>
-                            <SocialIcon url="https://www.jbzd.pl/" bgColor="rgb(255,255,255)" style={{ height: 35, width: 35 }} />
                         </div>
                     </div>
-
                 </div>
             }
             {
@@ -152,7 +147,7 @@ function Card(props) {
                 </div>
             }
         </Link >
-    );
+        );
 }
 
 function CarouselNav(props) {

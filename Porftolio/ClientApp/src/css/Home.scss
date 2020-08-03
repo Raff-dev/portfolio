@@ -84,13 +84,9 @@
 }
 
 @keyframes select {
-    0% {
-        margin: 0 2rem;
-    }
-
-    100% {
-        margin: 0 2.3rem;
+    to {
         filter: saturate(3);
+        transform: scale(1.15);
     }
 }
 
@@ -106,12 +102,10 @@
     }
     a {
         filter: saturate(1.2);
-
-        margin: 0 2rem;
+        margin: 2rem 2rem;
 
         &:hover {
-            transform: scale(1.15);
-            animation: select 0.4s ease-out forwards;
+            animation: select 0.2s ease-in-out forwards;
         }
     }
 

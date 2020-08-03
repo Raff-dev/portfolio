@@ -13,8 +13,10 @@ export class Projects extends Component {
                 {
                     image: "watplan.png",
                     title: 'WatPlan',
-                    subtitle: 'Subitle3',
-                    description: 'Description3',
+                    description:
+                        "Military University of Technology schedule android app,\
+                        written in java, with its own rest api built using \
+                        Django Rest Framework, Python",
                     links: [
                         'https://github.com/Raff-dev/WAT_Plan',
                         'https://watplan.eu.pythonanywhere.com/home/']
@@ -22,7 +24,6 @@ export class Projects extends Component {
                 {
                     image: "toster.gif",
                     title: 'Toster',
-                    subtitle: 'Subitle3',
                     description: 'Description3',
                     links: [
                         'https://github.com/Raff-dev/WAT_Plan',
@@ -31,7 +32,6 @@ export class Projects extends Component {
                 {
                     image: "lz77.png",
                     title: 'LZ77',
-                    subtitle: 'Subitle1',
                     description: 'Description1',
                     links: [
                         'https://github.com/Raff-dev/WAT_Plan',
@@ -40,7 +40,6 @@ export class Projects extends Component {
                 {
                     image: "tetris.gif",
                     title: 'Tetris',
-                    subtitle: 'Subitle4',
                     description: 'Description2',
                     links: [
                         'https://github.com/Raff-dev/WAT_Plan',
@@ -49,7 +48,6 @@ export class Projects extends Component {
                 {
                     image: "portfolio.png",
                     title: 'Portfolio',
-                    subtitle: 'Subitle5',
                     description: 'Description5',
                     links: [
                         'https://github.com/Raff-dev/WAT_Plan',
@@ -59,7 +57,6 @@ export class Projects extends Component {
                 {
                     image: "boids.gif",
                     title: 'Boids',
-                    subtitle: 'Subitle4',
                     description: 'Description2',
                     links: [
                         'https://github.com/Raff-dev/WAT_Plan',
