@@ -34,7 +34,7 @@ export class Experience extends Component {
     render() {
         return (
             <TimeLine
-                sectionName={this.displayName}
+                sectionName={"Experience"}
                 nextSectionName={this.state.nextSectionName}
                 entries={this.state.entries}
             />

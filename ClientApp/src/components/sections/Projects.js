@@ -78,7 +78,7 @@ export class Projects extends Component {
         return (
             <Section
                 content={content}
-                sectionName={this.displayName}
+                sectionName={"Projects"}
                 nextSectionName={this.state.nextSectionName}
             />
         );

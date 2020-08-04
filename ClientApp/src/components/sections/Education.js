@@ -33,7 +33,7 @@ export class Education extends Component {
     render() {
         return (
             <TimeLine
-                sectionName={this.displayName}
+                sectionName={"Education"}
                 nextSectionName={this.state.nextSectionName}
                 entries={this.state.entries} />
         );
