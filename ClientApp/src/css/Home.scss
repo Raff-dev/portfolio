@@ -1,0 +1,117 @@
+﻿.Home {
+    background: url('background-3.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #464646;
+    align-items: center;
+    height: 100vh;
+    display: flex;
+    color: rgba(255, 255, 255,50);
+    font-weight: 700;
+
+    > div {
+        display: block;
+        justify-content: center;
+        opacity: 0.93;
+    }
+
+    h1, name, .description, .info {
+        display: flex;
+        justify-content: center;
+    }
+
+    .name {
+        font-size: 3rem;
+        font-family: 'Roboto',sans-serif;
+        font-weight: 700;
+
+        @media (max-width: 767px) {
+            font-size: 2rem;
+        }
+    }
+
+    .surname {
+        color: rgb(250, 100, 0);
+        opacity: 0.9;
+    }
+
+    .description {
+        text-align: center;
+        justify-content: center;
+        font-family: 'Recursive',sans-serif;
+        font-weight: 300;
+        font-size: 2rem;
+        @media (max-width: 767px) {
+            font-size: 1.5rem;
+        }
+    }
+
+    .info {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+
+        @media (max-width: 767px) {
+            left: 50%;
+            display: inline-block;
+            transform: translateX(-50%);
+        }
+
+        p, a {
+            padding: 0 2vh;
+        }
+
+        p {
+            font-family: 'Lato', sans-serif;
+            font-size: 2rem;
+            font-weight: 300;
+            font-style: italic;
+            margin: 0;
+        }
+
+        a {
+            font-family: 'Recursive', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: rgb(255, 106, 0);
+        }
+    }
+}
+
+@keyframes select {
+    to {
+        filter: saturate(3);
+        transform: scale(1.15);
+    }
+}
+
+.social-icons {
+    display: flex;
+    margin: 2rem 0;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s ease-in-out;
+
+    .social-icon{
+        height: 2rem;
+    }
+    a {
+        filter: saturate(1.2);
+        margin: 2rem 2rem;
+
+        &:hover {
+            animation: select 0.2s ease-in-out forwards;
+        }
+    }
+
+    .social-svg {
+        color:rgb(62, 144, 192);
+        color:rgb(0, 127, 177);
+        color:rgb(65, 131, 196);
+        opacity: 0.9;
+    }
+}
