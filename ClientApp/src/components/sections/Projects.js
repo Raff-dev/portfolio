@@ -24,32 +24,37 @@ export class Projects extends Component {
                 {
                     image: "images/toster.gif",
                     title: 'Toster',
-                    description: 'Description3',
+                    description: 'Toster is a copy of Twitter implemented in Django framework. \
+                    Includes various activities such as posting, commenting, liking, \
+                    editing profile and more.',
                     links: [
                         'https://github.com/Raff-dev/Toster']
                 },
                 {
                     image: "images/lz77.png",
                     title: 'LZ77',
-                    description: 'Description1',
+                    description: 'Theory of information and encoding class project, \
+                    which is an implementation of LZ77 losseless text data compression algorithm.\
+                    Written in c# using ASP.NET.',
                     links: [
                         'https://github.com/Raff-dev/Dictionary-Coder']
                 },
                 {
                     image: "images/tetris.gif",
                     title: 'Tetris',
-                    description: 'Description2',
+                    description: 'My interpretation of classic Tetris game,\
+                     written in Java and displayed with the help of JavaFX graphical library.',
                     links: [
                         'https://github.com/Raff-dev/Tetris',]
                 },
                 {
                     image: "images/portfolio.png",
                     title: 'Portfolio',
-                    description: 'This website was created using\
+                    description: 'This portfolio of mine was created using\
                         React framework to display my work and experience.',
                     links: [
                         'https://github.com/Raff-dev/Portfolio',
-                        'http://localhost:3000/']
+                        'https://raff-dev.github.io/Portfolio/']
                 },
                 {
                     image: "images/boids.gif",

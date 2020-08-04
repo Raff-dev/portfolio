@@ -1,4 +1,10 @@
-﻿.body-wrapper {
+﻿html{-ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    ::-webkit-scrollbar{
+        display: none;}
+}
+.body-wrapper {
     overflow-x: hidden;
     position: relative;
+    
 }

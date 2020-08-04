@@ -1,7 +1,12 @@
 import React from 'react';
 import { Section } from '../utilities/Section';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export function Skills(props) {
+
+    const technologies = ['react', 'node.js', 'django', 'unity', 'git', 'bash'];
+    const languages = ['java', 'python', 'javascript', 'SQL', 'c#', 'c', 'html', 'css', 'sass']
+
     const content =
         <div className="section-content skills">
 
@@ -16,28 +21,26 @@ export function Skills(props) {
                 <li className="list-inline-item"><i className="fab fa-sass"></i></li>
                 <li className="list-inline-item"><i className="fab fa-less"></i></li>
                 <li className="list-inline-item"><i className="fab fa-wordpress"></i></li>
-                <li className="list-inline-item"><i className="fab fa-gulp"></i></li>
-                <li className="list-inline-item"><i className="fab fa-grunt"></i></li>
                 <li className="list-inline-item"><i className="fab fa-npm"></i></li>
             </ul>
             <div className="subheading mb-3">Workflow</div>
+            <FontAwesomeIcon icon={["fa", "coffee"]} size="6x" />
+            <FontAwesomeIcon icon={["fab", "coffee"]} />
+            <FontAwesomeIcon icon={["fab", "coffee"]} />
             <ul className="fa-ul mb-0">
+                <li><FontAwesomeIcon icon={["fab", "coffee"]} />
+                    <span className="fa-li">
+                        Mobile-First, Responsive Design</span>
+                </li>
+                <li><FontAwesomeIcon icon={["fab", "coffee"]} />
+                    <span className="fa-li">Simpler means better</span>
+                </li>
                 <li>
-                    <span className="fa-li"><i className="fas fa-check"></i></span>
-                            Mobile-First, Responsive Design
-                                </li>
-                <li>
-                    <span className="fa-li"><i className="fas fa-check"></i></span>
-                            Cross Browser Testing & Debugging
-                              </li>
-                <li>
-                    <span className="fa-li"><i className="fas fa-check"></i></span>
-                            Cross Functional Teams
-                               </li>
-                <li>
-                    <span className="fa-li"><i className="fas fa-check"></i></span>
-                            Agile Development & Scrum
-                                </li>
+                    <span className="fa-li">Cross Functional Teams</span>
+                </li>
+                <li><FontAwesomeIcon icon={["fab", "coffee"]} />
+                    <span className="fa-li">Agile Development & Scrum</span>
+                </li>
             </ul>
         </div>
 

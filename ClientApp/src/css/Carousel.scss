@@ -98,7 +98,7 @@
     background-color: rgba(0,0,0,0.3);
     box-shadow: calc(3px*var(--offset)) -2px 8px 4px #0009;
     transform: translateX(calc(105%*var(--offset))) rotateY(calc(-15deg*var(--dir)));
-    transition: calc(var(--showTransition)*0.4s);
+    transition: calc(var(--showTransition)*0.9s) ;
     text-decoration: none;
 
     @media (max-width: 767px) {
