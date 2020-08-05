@@ -17,7 +17,7 @@
         opacity: 0.93;
     }
 
-    h1, name, .description, .info {
+    h1,.name, .description, .info {
         display: flex;
         justify-content: center;
     }
@@ -26,7 +26,6 @@
         --offsetX:-50vw;
         --offsetY:0;
         opacity: 0;
-        transform: translateX(var(--offsetX));
         animation: getin 0.7s ease 0.5s forwards ;
         font-size: 3rem;
         font-family: 'Roboto',sans-serif;
@@ -38,6 +37,7 @@
     }
 
     .surname {
+        margin-left: 1rem;
         color: rgb(250, 100, 0);
         opacity: 0.9;
     }
@@ -46,7 +46,6 @@
         --offsetX:50vw;
         --offsetY:0;
         opacity: 0;
-        transform: translateX(var(--offsetX));
         animation: getin 0.7s ease 1.5s forwards ;
 
         text-align: center;
@@ -62,10 +61,13 @@
     .info {
         --offsetX:0;
         --offsetY:50vh;
-        opacity: 0;
-        transform: translateY(var(--offsetY));
-        animation: getin 0.7s ease 2.5s forwards ;
+        --offsetFinishY:0;
+        --offsetFinishX:0;
 
+
+        opacity: 0;
+        // animation: getin 0.7s ease 2.5s forwards ;
+        animation: getin 0.7s ease 0.3s forwards ,frominvis 0.7s ease 0.1s forwards;
         position: relative;
         display: flex;
         justify-content: center;
@@ -75,7 +77,8 @@
         @media (max-width: 767px) {
             left: 50%;
             display: inline-block;
-            transform: translateX(-50%);
+            --offsetFinishX:-50%;
+
         }
 
         p, a {

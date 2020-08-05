@@ -1,6 +1,5 @@
 import React from 'react';
 import { Section } from '../utilities/Section';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export function Skills(props) {
 
@@ -24,21 +23,19 @@ export function Skills(props) {
                 <li className="list-inline-item"><i className="fab fa-npm"></i></li>
             </ul>
             <div className="subheading mb-3">Workflow</div>
-            <FontAwesomeIcon icon={["fa", "coffee"]} size="6x" />
-            <FontAwesomeIcon icon={["fab", "coffee"]} />
-            <FontAwesomeIcon icon={["fab", "coffee"]} />
             <ul className="fa-ul mb-0">
-                <li><FontAwesomeIcon icon={["fab", "coffee"]} />
+                <li>
                     <span className="fa-li">
                         Mobile-First, Responsive Design</span>
                 </li>
-                <li><FontAwesomeIcon icon={["fab", "coffee"]} />
+                <li>
                     <span className="fa-li">Simpler means better</span>
                 </li>
                 <li>
                     <span className="fa-li">Cross Functional Teams</span>
                 </li>
-                <li><FontAwesomeIcon icon={["fab", "coffee"]} />
+                <li>
+
                     <span className="fa-li">Agile Development & Scrum</span>
                 </li>
             </ul>

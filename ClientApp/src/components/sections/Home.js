@@ -10,9 +10,9 @@ export class Home extends Component {
         return (
             <section className="resume-section Home" id="Home">
                 <div className="section-content">
-                    <h1 className="name mb-0">
-                        My name is Rafal<span className="surname"> Lazicki.</span>
-                    </h1>
+                    <p className="name mb-0">
+                        My name is Rafał <span className="surname"> Łazicki.</span>
+                    </p>
                     <span>
                         <p className="description mb-5">I'am a 3rd year computer science student.</p>
                     </span>
