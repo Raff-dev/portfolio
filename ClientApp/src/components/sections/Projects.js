@@ -11,7 +11,7 @@ export class Projects extends Component {
             nextSectionName: props.nextSectionName,
             projects: [
                 {
-                    image: "images/watplan.png",
+                    images: ["images/watplan.png"],
                     title: 'WatPlan',
                     description:
                         <p>Military University of Technology schedule android app,
@@ -23,9 +23,9 @@ export class Projects extends Component {
                         'https://watplan.eu.pythonanywhere.com/home/']
                 },
                 {
-                    image: "images/toster.gif",
+                    images: ["images/toster.gif"],
                     title: 'Toster',
-                    description: <p>Toster is a copy of Twitter, which back-end i have
+                    description: <p>Toster is a copy of Twitter, which back-end I have
                     written in <span>Python</span> using <span>Django framework</span>,
                     whereas front-end in <span>JavaScript</span>, using <span>JQuery</span>.
                     Includes various activities such as posting, commenting, liking,
@@ -34,7 +34,7 @@ export class Projects extends Component {
                         'https://github.com/Raff-dev/Toster']
                 },
                 {
-                    image: "images/lz77.png",
+                    images: ["images/lz77.png"],
                     title: 'LZ77',
                     description: <p>Theory of information and encoding class project,
                     which is an implementation of LZ77 losseless text data compression algorithm.
@@ -43,7 +43,7 @@ export class Projects extends Component {
                         'https://github.com/Raff-dev/Dictionary-Coder']
                 },
                 {
-                    image: "images/tetris.gif",
+                    images: ["images/tetris.gif"],
                     title: 'Tetris',
                     description: <p>My interpretation of classic Tetris game,
                     written in <span>Java</span> and displayed with the help
@@ -52,7 +52,7 @@ export class Projects extends Component {
                         'https://github.com/Raff-dev/Tetris',]
                 },
                 {
-                    image: "images/portfolio.png",
+                    images: ["images/portfolio.png"],
                     title: 'Portfolio',
                     description: <p>This portfolio of mine was created in
                     <span> JavaScript </span>using<span> ReactJS </span>framework
@@ -62,7 +62,7 @@ export class Projects extends Component {
                         'https://raff-dev.github.io/Portfolio']
                 },
                 {
-                    image: "images/boids.gif",
+                    images: ["images/boids.gif"],
                     title: 'Boids',
                     description: <p>Boids is an artificial life simulation,
                     which aims to replicate behaviour of flocks of birds.
@@ -71,15 +71,7 @@ export class Projects extends Component {
                         'https://github.com/Raff-dev/Boids',]
                 },
             ],
-
-            loading: true,
         };
-
-        fetch('api/Projects/?highlighted=true')
-            .then(response => response.json())
-            .then(data => {
-                this.setState({ loading: false });
-            })
     }
 
     render() {

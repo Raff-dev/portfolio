@@ -48,7 +48,7 @@ export class Carousel extends Component {
                                     card={card}
                                     offset={offset}
                                     dir={dir}
-                                    onClick={this.state.modalActive ? null : this.select}
+                                    onClick={this.select}
                                     onClose={() => this.setState({ modalActive: false })}
                                     modalActive={this.state.modalActive}
                                     showTransition={showTransition}

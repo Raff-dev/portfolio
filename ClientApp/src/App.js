@@ -7,15 +7,14 @@ import { Education } from './components/sections/Education';
 import { About } from './components/sections/About';
 import { Skills } from './components/sections/Skills';
 import { Experience } from './components/sections/Experience';
-import { TopArrow } from './components/utilities/Navigation';
 import './css/App.scss';
 import './css/Carousel.scss';
 import './css/Home.scss';
+import './css/Skills.scss';
 import './css/About.scss';
 import './css/NavMenu.scss';
 import './css/Section.scss';
 import './css/TimeLine.scss';
-
 
 export default class App extends Component {
     displayName = App.name
@@ -24,10 +23,9 @@ export default class App extends Component {
         super(props);
         this.state = {
             sections: [
-                'Home', 'Projects', 'About', 'Skills', 'Education', 'Experience']
+                'Home', 'Projects', 'Skills', 'About', 'Education', 'Experience']
         }
     }
-
 
     render() {
         const sections = this.state.sections;
@@ -38,14 +36,13 @@ export default class App extends Component {
                 <div>
                     <Projects nextSectionName={sections[2]} />
                     <hr class="m-0" />
-                    <About nextSectionName={sections[3]} />
+                    <Skills nextSectionName={sections[3]} />
                     <hr class="m-0" />
-                    <Skills nextSectionName={sections[4]} />
+                    <About nextSectionName={sections[4]} />
                     <hr class="m-0" />
                     <Education nextSectionName={sections[5]} />
                     <hr class="m-0" />
                     <Experience nextSectionName={null} />
-                    <TopArrow />
                 </div>
             </div>
         );

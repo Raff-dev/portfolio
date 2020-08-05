@@ -56,7 +56,6 @@
                 margin: 0 calc(1.0/var(--count)*10vw);
             }
             &[data-modal=true]{
-          
                 --offsetFinishX:-100vw;
                 --offsetFinishY:0;
                 animation: getin 0.3s ease-in calc(var(--index)*0.04s) forwards;
@@ -111,6 +110,7 @@
         }
     }
     .image-wrapper{
+        overflow: hidden;
         width: 100%;
         height: 100%;
         display: flex;
@@ -118,6 +118,12 @@
         align-items: flex-start;
         transition: 0.3s ease-in-out ;
         animation: imageshrink 0.8s forwards;
+
+        .modal-carousel-arrow{
+            position: absolute;
+            top:50%;
+            left:0%;
+        }
         
         &[data-modal=true]{
             height: var(--card-height-initial);

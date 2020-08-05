@@ -14,7 +14,7 @@ export function Section(props) {
                 </span>
                 {content}
             </div>
-            {nextSectionName && < NextArrow id={nextSectionName} />}
+            < NextArrow id={nextSectionName} />
         </section>
     );
 };

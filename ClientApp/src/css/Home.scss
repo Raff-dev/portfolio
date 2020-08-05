@@ -60,14 +60,14 @@
 
     .info {
         --offsetX:0;
-        --offsetY:50vh;
+        --offsetY:30vh;
         --offsetFinishY:0;
         --offsetFinishX:0;
 
 
         opacity: 0;
         // animation: getin 0.7s ease 2.5s forwards ;
-        animation: getin 0.7s ease 0.3s forwards ,frominvis 0.7s ease 0.1s forwards;
+        animation: getin 0.7s ease 3s forwards ,frominvis 0.7s ease 3s forwards;
         position: relative;
         display: flex;
         justify-content: center;
@@ -77,6 +77,7 @@
         @media (max-width: 767px) {
             left: 50%;
             display: inline-block;
+            --offsetX:-50%;
             --offsetFinishX:-50%;
 
         }
@@ -102,10 +103,10 @@
     }
     .social-icons {
         --offsetX:0;
-        --offsetY:50vh;
+        --offsetY:30vh;
         opacity: 0;
         transform: translateX(var(--offsetX));
-        animation: getin 0.7s ease 2.5s forwards ;
+        animation: getin 0.7s ease 3s forwards ;
     }    
 }
 

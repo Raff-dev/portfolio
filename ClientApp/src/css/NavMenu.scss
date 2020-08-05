@@ -1,14 +1,11 @@
 ﻿@keyframes frominvis{
-    from{
-
-    }
     to{
         opacity: 1;
     }
 }
 .navbar {
     opacity: 0;
-    animation: frominvis 1s ease-out 3.4s forwards;
+    animation: frominvis 0.7s ease-out 3s forwards;
     position: absolute;
     z-index: 10;
     top: 1rem;
@@ -94,7 +91,7 @@
     right: 10vh;
     padding: 0 5vh;
     font-size: 5vh;
-    opacity: 0.8;
+    height: min-content;
 
     .span:hover {
         cursor: pointer;
