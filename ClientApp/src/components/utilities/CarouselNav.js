@@ -1,6 +1,6 @@
 import React from 'react';
 
-const getOffset = (index, activeIndex, length) => {
+export function getOffset(index, activeIndex, length) {
     let offset = (index - activeIndex);
     if (offset > Math.floor(length / 2)) offset -= length;
     else if (offset < -Math.floor(length / 2)) offset += length;

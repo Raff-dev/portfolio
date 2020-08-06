@@ -1,7 +1,7 @@
 import React from 'react';
 import { Section } from '../utilities/Section';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBrain, faMobileAlt, faPenNib } from '@fortawesome/free-solid-svg-icons'
+import { faSitemap, faMobileAlt, faPenNib } from '@fortawesome/free-solid-svg-icons'
 import { faReact, faUnity, faAndroid } from '@fortawesome/free-brands-svg-icons'
 import { faJava, faPython, faJs, faBootstrap } from '@fortawesome/free-brands-svg-icons'
 
@@ -18,9 +18,9 @@ export function Skills(props) {
                     </div>
                 </div>
                 <div className="rule-box">
-                    <p>Intuitive Architectire</p>
+                    <p>Intuitive Architecture</p>
                     <div>
-                        <FontAwesomeIcon icon={faBrain} size="4x" color="#fff" />
+                        <FontAwesomeIcon icon={faSitemap} size="4x" color="#fff" />
                     </div>
                 </div>
                 <div className="rule-box">
@@ -33,6 +33,12 @@ export function Skills(props) {
             <div className="technologies">
                 <div className="subheading">Programming Languages & Tools</div>
                 <div className="languages">
+
+                    {languages.map((icon, index) => {
+                        return <div className="icon">
+                            <FontAwesomeIcon icon={icon} size="4x" color="rgb(250,100,0)" />
+                        </div>
+                    })}
                     <div className="icon">
                         <img src="images/csharp.png" alt="" />
                     </div>
@@ -42,11 +48,6 @@ export function Skills(props) {
                     <div className="icon">
                         <img src="images/sql.png" alt="" />
                     </div>
-                    {languages.map((icon, index) => {
-                        return <div className="icon">
-                            <FontAwesomeIcon icon={icon} size="4x" color="rgb(250,100,0)" />
-                        </div>
-                    })}
                 </div>
                 <div className="tools">
                     <div className="icon">

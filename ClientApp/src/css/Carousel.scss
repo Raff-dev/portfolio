@@ -95,8 +95,8 @@
     height: var(--card-height-initial);
     width: var(--card-width-initial);
     background-color: rgba(0,0,0,0.3);
-    box-shadow: calc(3px*var(--offset)) -2px 8px 4px #0009;
-    transform: translateX(calc(105%*var(--offset))) rotateY(calc(-15deg*var(--dir)));
+    box-shadow: calc(3px*var(--card-offset)) -2px 8px 4px #0009;
+    transform: translateX(calc(105%*var(--card-offset))) rotateY(calc(-15deg*var(--dir)));
     transition: calc(var(--showTransition)*0.9s) ;
     text-decoration: none;
 
@@ -110,6 +110,7 @@
         }
     }
     .image-wrapper{
+        position: relative;
         overflow: hidden;
         width: 100%;
         height: 100%;
@@ -119,11 +120,32 @@
         transition: 0.3s ease-in-out ;
         animation: imageshrink 0.8s forwards;
 
-        .modal-carousel-arrow{
+        .modal-carousel-arrows{
             position: absolute;
+            width: 100%;
+            opacity: 0;
+            font-weight: 600;
+            font-size: 4rem;
+            display: flex;
+            z-index: 10;
             top:50%;
-            left:0%;
+            padding: 0 5%;
+            transform: translateY(-50%);
+            justify-content: space-between;
+            animation:frominvis 0.5s ease-in 0.6s forwards ;
+            
+            .modal-carousel-arrow{
+                color:#fa6400aa;
+                transition: 0.1s ease-out;
+                animation: pulse 0.6s ease-in-out infinite alternate;
+                    
+                &:hover{
+                    color:#fa6400dd;
+                    transform: scale(1.1);
+                }
+            }
         }
+        
         
         &[data-modal=true]{
             height: var(--card-height-initial);
@@ -131,6 +153,18 @@
             animation: imagegrow 0.8s forwards;
             animation-delay: 0.2s;
             
+        }
+        @keyframes pulse{
+            from{
+                opacity: 0.7;
+                transform: scale(1);
+            }
+            to{
+                opacity: 1;
+                transform: scale(1.05);}
+        }
+        @keyframes frominvis{
+            to{opacity:1;}
         }
         @keyframes imagegrow{
             to{
@@ -145,14 +179,18 @@
             }
         }
         .card-image {
+            position: absolute;
             width: 100%;
             height: 100%;
             background-size: cover;
             background-position: center center;
             opacity: calc(1 - 0.15 * var(--dirabs));
             transition: 1s ease-in-out delay 0.3s;
-
+            
             &[data-modal=true]{
+                
+                transition: calc(var(--show-tansition)*0.6s) ease-in-out;
+                transform: translateX(calc(var(--image-offset)*100%));
                 background-size: contain;
                 background-repeat: no-repeat;
             }
@@ -177,6 +215,8 @@
 
         .description{
             font-family: 'Roboto';
+            font-size: 1.8rem;
+            
             display: flex;
             justify-content: center;
             max-width: 400px;
@@ -184,15 +224,22 @@
             margin: 0 20%;
             color: rgba(255, 255, 255,50);
             opacity: 0.8;
+            p{
+                
+                text-shadow: 2px 2px 12px #0007;
+            }
             
             @media (max-width: 767px) {
                 margin: 0;
+                font-size: 1.5rem;
+
             }
             span{
+                font-family: 'Recursive';
                 font-style: italic;
                 font-weight: 600;
                 color: rgb(250,100,0);
-                opacity: 0.7;
+                opacity: 0.9;
             }
         }
 

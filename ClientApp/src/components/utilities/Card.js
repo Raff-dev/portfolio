@@ -1,81 +1,110 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-scroll'
 import { SocialIcon } from 'react-social-icons';
+import { Glyphicon } from 'react-bootstrap'
+import { getOffset } from './CarouselNav'
 
 export function Card(props) {
-    var offset = props.offset;
+    var cardOffset = props.offset;
     const card = props.card;
-    const active = offset === 0 ? true : false;
-    offset = (props.modalActive && offset !== 0) ? (10 * offset) : offset;
+    const active = cardOffset === 0 ? true : false;
+    const [imageIndex, setImageIndex] = useState(0);
+    const [imageDir, setImageDir] = useState(0);
+    cardOffset = (props.modalActive && cardOffset !== 0) ? (10 * cardOffset) : cardOffset;
 
-    return Math.abs(offset) > 3
-        ? null
-        : (<Link
+    const clickHint =
+        <div className="click-hint">
+            <p>CLICK ME</p>
+        </div>;
+
+    const modalComponent =
+        <div className="modal-items">
+            <div className="description">
+                {card.description}
+            </div>
+            <div className="modal-buttons">
+                <div className="modal-buttons-wrapper">
+                    {card.links.map((link, index) => {
+                        return <div className="social-icons">
+                            <SocialIcon
+                                onClick={e => e.stopPropagation()}
+                                url={link}
+                                bgColor="rgb(255,255,255)"
+                                style={{ height: 35, width: 35 }} />
+                        </div>
+                    })}
+
+                    <div className="close-button-wrapper">
+                        <Link
+                            to={'Projects'}
+                            duration={300}
+                            smooth={true}
+                            className="close-button"
+                            onClick={() => {
+                                props.onClose();
+                                setImageIndex(0);
+                            }}>
+                            <span>+</span>
+                        </Link>
+                    </div>
+                </div>
+            </div>
+        </div>;
+
+    const imageComponent =
+        <div className="image-wrapper" data-modal={props.modalActive}>
+            <div className="modal-carousel-arrows">
+                {props.modalActive && card.images.length > 1 &&
+                    [-1, 1].map((dir, index) => {
+                        return <div className="modal-carousel-arrow"
+                            data-dir={dir.toString()}>
+                            <Glyphicon glyph={dir == 1 ? 'menu-right' : 'menu-left'}
+                                onClick={() => {
+                                    console.log(dir + " " + index);
+                                    setImageIndex((imageIndex - dir + card.images.length) % card.images.length);
+                                    setImageDir(dir);
+                                }} />
+                        </div>
+                    })}
+            </div>
+            {card.images.map((image, index) => {
+                const imageOffset = getOffset(index, imageIndex, card.images.length)
+                return (props.modalActive || index == 0) && <div
+                    data-active={active}
+                    data-modal={props.modalActive}
+                    className="card-image"
+                    style={{
+                        backgroundImage: `url('${image}')`,
+                        '--image-offset': imageOffset,
+                        '--show-tansition': Math.abs(imageOffset - imageDir) < 2 ? 1 : 0
+                    }}
+                ></div>
+            })}
+        </div>;
+
+    const cardComponent =
+        <Link
             to={(active && !props.modalActive)
                 ? card.title.replace(/ /g, '')
                 : null}
             duration={300}
             smooth={true}
-            onClick={props.onClick == null ? null : () => props.onClick(props.dir)}
+            onClick={(e) => props.onClick(props.dir)}
             className="card"
             data-active={active}
             data-modal={props.modalActive}
             style={{
-                '--offset': offset,
+                '--card-offset': cardOffset,
                 '--dir': props.dir,
                 '--dirabs': Math.abs(props.dir),
                 '--showTransition': props.showTransition,
-            }
-            }>
+            }}>
             <span className="title-container">
                 <h3 className="title" id={card.title.replace(/ /g, '')}>{card.title}</h3>
             </span>
-            <div className="image-wrapper" data-modal={props.modalActive}>
-                <div
-                    data-active={active}
-                    data-modal={props.modalActive}
-                    className="card-image"
-                    style={{
-                        backgroundImage: `url('${card.image}')`,
-                    }}
-                ></div>
-            </div>
-            {
-                props.modalActive && active &&
-                <div className="modal-items">
-                    <div className="description">
-                        {card.description}
-                    </div>
-                    <div className="modal-buttons">
-                        <div className="modal-buttons-wrapper">
-                            <div className="social-icons">
-                                <SocialIcon url={card.links[0]} bgColor="rgb(255,255,255)" style={{ height: 35, width: 35 }} />
-                            </div>
-                            {card.links.length > 1 &&
-                                <div className="social-icons">
-                                    <SocialIcon url={card.links[1]} bgColor="rgb(255,255,255)" style={{ height: 35, width: 35 }} />
-                                </div>
-                            }
-                            <div className="close-button-wrapper">
-                                <Link
-                                    to={'Projects'}
-                                    duration={300}
-                                    smooth={true}
-                                    className="close-button"
-                                    onClick={props.onClose}>
-                                    <span>+</span>
-                                </Link>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            }
-            {
-                !props.modalActive &&
-                <div className="click-hint">
-                    <p>CLICK ME</p>
-                </div>
-            }
-        </Link >
-        );
+            {imageComponent}
+            {props.modalActive && active ? modalComponent : clickHint}
+        </Link >;
+
+    return Math.abs(cardOffset) > 3 ? null : cardComponent;
 }

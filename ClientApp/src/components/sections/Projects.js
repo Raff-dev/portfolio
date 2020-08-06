@@ -11,7 +11,11 @@ export class Projects extends Component {
             nextSectionName: props.nextSectionName,
             projects: [
                 {
-                    images: ["images/watplan.png"],
+                    images: [
+                        "images/watplan.png",
+                        "images/watplanfeatures.gif",
+                        "images/watplanstart.gif",
+                    ],
                     title: 'WatPlan',
                     description:
                         <p>Military University of Technology schedule android app,
