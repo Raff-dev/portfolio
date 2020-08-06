@@ -9,6 +9,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        text-align: center;
     }
 
     .workflow{
@@ -59,7 +60,7 @@
         .tools, .languages{
             display: flex;
             flex-wrap: wrap;
-            padding: 1vh 20vw;
+            padding: 1vh 25vw;
             justify-content: space-around;
             align-items: center;
 

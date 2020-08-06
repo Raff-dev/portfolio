@@ -56,12 +56,16 @@ export function Card(props) {
             <div className="modal-carousel-arrows">
                 {props.modalActive && card.images.length > 1 &&
                     [-1, 1].map((dir, index) => {
-                        return <div className="modal-carousel-arrow"
-                            data-dir={dir.toString()}>
+                        const disabled = ((imageIndex + dir) < 0 || (imageIndex + dir) >= card.images.length) ? true : false;
+                        return <div
+                            className="modal-carousel-arrow"
+                            data-dir={dir.toString()}
+                            data-disabled={disabled}
+                        >
                             <Glyphicon glyph={dir == 1 ? 'menu-right' : 'menu-left'}
                                 onClick={() => {
-                                    console.log(dir + " " + index);
-                                    setImageIndex((imageIndex - dir + card.images.length) % card.images.length);
+                                    if (disabled) return;
+                                    setImageIndex((imageIndex + dir + card.images.length) % card.images.length);
                                     setImageDir(dir);
                                 }} />
                         </div>
@@ -76,7 +80,7 @@ export function Card(props) {
                     style={{
                         backgroundImage: `url('${image}')`,
                         '--image-offset': imageOffset,
-                        '--show-tansition': Math.abs(imageOffset - imageDir) < 2 ? 1 : 0
+                        '--show-tansition': Math.abs(imageOffset + imageDir) < 2 ? 1 : 0
                     }}
                 ></div>
             })}

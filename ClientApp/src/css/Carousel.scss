@@ -139,9 +139,14 @@
                 transition: 0.1s ease-out;
                 animation: pulse 0.6s ease-in-out infinite alternate;
                     
+                &[data-disabled=true]{
+                    color:#0005;
+                    &:hover{
+                        color:#0005;
+                    }
+                }
                 &:hover{
                     color:#fa6400dd;
-                    transform: scale(1.1);
                 }
             }
         }
@@ -188,8 +193,7 @@
             transition: 1s ease-in-out delay 0.3s;
             
             &[data-modal=true]{
-                
-                transition: calc(var(--show-tansition)*0.6s) ease-in-out;
+                transition: calc(var(--show-tansition)*0.6s);
                 transform: translateX(calc(var(--image-offset)*100%));
                 background-size: contain;
                 background-repeat: no-repeat;
@@ -331,11 +335,6 @@
         }
     }
 
-    &[data-active=false] {
-        &[data-modal=true] {
-            transition: 1.5s ease-in-out;
-        }
-    }
 
     &[data-active=true] {
         box-shadow: 0 0 10px #ff6a0088;
@@ -359,7 +358,6 @@
             transform: scale(1.1);
 
             &:hover {
-                transform: scale(1.2);
                 cursor: pointer;
 
                 .click-hint {

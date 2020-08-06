@@ -15,6 +15,7 @@ export class Projects extends Component {
                         "images/watplan.png",
                         "images/watplanfeatures.gif",
                         "images/watplanstart.gif",
+                        "images/watplan4.png",
                     ],
                     title: 'WatPlan',
                     description:
@@ -27,7 +28,12 @@ export class Projects extends Component {
                         'https://watplan.eu.pythonanywhere.com/home/']
                 },
                 {
-                    images: ["images/toster.gif"],
+                    images: [
+                        "images/toster.gif",
+                        "images/toster2.gif",
+                        "images/toster3.gif",
+                        "images/toster4.gif",
+                    ],
                     title: 'Toster',
                     description: <p>Toster is a copy of Twitter, which back-end I have
                     written in <span>Python</span> using <span>Django framework</span>,
@@ -38,7 +44,10 @@ export class Projects extends Component {
                         'https://github.com/Raff-dev/Toster']
                 },
                 {
-                    images: ["images/lz77.png"],
+                    images: [
+                        "images/lz77.png",
+                        "images/lz772.gif"
+                    ],
                     title: 'LZ77',
                     description: <p>Theory of information and encoding class project,
                     which is an implementation of LZ77 losseless text data compression algorithm.
@@ -47,7 +56,11 @@ export class Projects extends Component {
                         'https://github.com/Raff-dev/Dictionary-Coder']
                 },
                 {
-                    images: ["images/tetris.gif"],
+                    images: [
+                        "images/tetris.gif",
+                        "images/tetris2.gif",
+                        "images/tetris3.gif",
+                    ],
                     title: 'Tetris',
                     description: <p>My interpretation of classic Tetris game,
                     written in <span>Java</span> and displayed with the help
