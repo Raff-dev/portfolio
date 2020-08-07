@@ -15,6 +15,8 @@ import './css/About.scss';
 import './css/NavMenu.scss';
 import './css/Section.scss';
 import './css/TimeLine.scss';
+import './css/Contact.scss';
+import { Contact } from './components/sections/Contact';
 
 export default class App extends Component {
     displayName = App.name
@@ -23,7 +25,8 @@ export default class App extends Component {
         super(props);
         this.state = {
             sections: [
-                'Home', 'Projects', 'Skills', 'About', 'Education', 'Experience']
+                'Home', 'Projects', 'Skills', 'About', 'Contact'],
+            obsolete: ['Education', 'Experience',]
         }
     }
 
@@ -40,9 +43,10 @@ export default class App extends Component {
                     <hr class="m-0" />
                     <About nextSectionName={sections[4]} />
                     <hr class="m-0" />
-                    <Education nextSectionName={sections[5]} />
+                    {/* <Education nextSectionName={sections[5]} />
                     <hr class="m-0" />
-                    <Experience nextSectionName={null} />
+                    <Experience nextSectionName={sections[6]} /> */}
+                    <Contact nextSectionName={null} />
                 </div>
             </div>
         );

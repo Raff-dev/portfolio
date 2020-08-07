@@ -2,12 +2,12 @@ import React from 'react';
 import { Section } from '../utilities/Section';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSitemap, faMobileAlt, faPenNib } from '@fortawesome/free-solid-svg-icons'
-import { faReact, faUnity, faAndroid } from '@fortawesome/free-brands-svg-icons'
-import { faJava, faPython, faJs, faBootstrap } from '@fortawesome/free-brands-svg-icons'
+import { faReact, faUnity, faJava, faPython, faHtml5, faCss3 } from '@fortawesome/free-brands-svg-icons'
+import { faAndroid, faJs, faBootstrap } from '@fortawesome/free-brands-svg-icons'
 
 export function Skills(props) {
+    const languages = [faJava, faPython, faJs, faHtml5, faCss3];
     const technologies = [faReact, faBootstrap, faUnity, faAndroid];
-    const languages = [faJava, faPython, faJs];
     const content =
         <div className="section-content skills">
             <div className="workflow">
@@ -58,6 +58,9 @@ export function Skills(props) {
                             <FontAwesomeIcon icon={icon} size="4x" color="rgb(250,100,0)" />
                         </div>
                     })}
+                    <div className="icon">
+                        <img src="images/dotnet.png" alt="" />
+                    </div>
                 </div>
             </div>
         </div >
