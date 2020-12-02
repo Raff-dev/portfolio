@@ -24,15 +24,14 @@ export function Card(props) {
             </div>
             <div className="modal-buttons">
                 <div className="modal-buttons-wrapper">
-                    {card.links.map((link, index) => {
-                        return <div className="social-icons">
+                    {card.links.map((link, index) =>
+                        <div className="social-icons" key={index}>
                             <SocialIcon
                                 onClick={e => e.stopPropagation()}
                                 url={link}
                                 bgColor="rgb(255,255,255)"
                                 style={{ height: 35, width: 35 }} />
-                        </div>
-                    })}
+                        </div>)}
 
                     <div className="close-button-wrapper">
                         <Link
@@ -73,42 +72,41 @@ export function Card(props) {
             </div>
             {card.images.map((image, index) => {
                 const imageOffset = getOffset(index, imageIndex, card.images.length)
-                return (props.modalActive || index == 0) && <div
-                    data-active={active}
-                    data-modal={props.modalActive}
-                    className="card-image"
-                    style={{
-                        backgroundImage: `url('${image}')`,
-                        '--image-offset': imageOffset,
-                        '--show-tansition': Math.abs(imageOffset + imageDir) < 2 ? 1 : 0
-                    }}
-                ></div>
+                return (props.modalActive || index == 0) &&
+                    <div key={index}
+                        data-active={active}
+                        data-modal={props.modalActive}
+                        className="card-image"
+                        style={{
+                            backgroundImage: `url('${image}')`,
+                            '--image-offset': imageOffset,
+                            '--show-tansition': Math.abs(imageOffset + imageDir) < 2 ? 1 : 0
+                        }} />
             })}
         </div>;
 
-    const cardComponent =
-        <Link
-            to={(active && !props.modalActive)
-                ? card.title.replace(/ /g, '')
-                : null}
-            duration={300}
-            smooth={true}
-            onClick={(e) => props.onClick(props.dir)}
-            className="card"
-            data-active={active}
-            data-modal={props.modalActive}
-            style={{
-                '--card-offset': cardOffset,
-                '--dir': props.dir,
-                '--dirabs': Math.abs(props.dir),
-                '--showTransition': props.showTransition,
-            }}>
-            <span className="title-container">
-                <h3 className="title" id={card.title.replace(/ /g, '')}>{card.title}</h3>
-            </span>
-            {imageComponent}
-            {props.modalActive && active ? modalComponent : clickHint}
-        </Link >;
-
-    return Math.abs(cardOffset) > 3 ? null : cardComponent;
+    return (
+        Math.abs(cardOffset) > 3
+            ? null
+            : <Link
+                to={(active && !props.modalActive) ? card.title.replace(/ /g, '') : ''}
+                duration={300}
+                smooth={true}
+                onClick={(e) => props.onClick(props.dir)}
+                className="card"
+                data-active={active}
+                data-modal={props.modalActive}
+                style={{
+                    '--card-offset': cardOffset,
+                    '--dir': props.dir,
+                    '--dirabs': Math.abs(props.dir),
+                    '--showTransition': props.showTransition,
+                }}>
+                <span className="title-container">
+                    <h3 className="title" id={card.title.replace(/ /g, '')}>{card.title}</h3>
+                </span>
+                {imageComponent}
+                {props.modalActive && active ? modalComponent : clickHint}
+            </Link >
+    );
 }

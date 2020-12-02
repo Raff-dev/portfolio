@@ -4,14 +4,14 @@ import { Link } from 'react-scroll'
 
 export function NavMenu({ sections }) {
     return (
-        <Navbar bg-transparent inverse fluid collapseOnSelect>
+        <Navbar bg-transparent="true" inverse fluid collapseOnSelect>
             <Navbar.Header>
                 <Navbar.Toggle />
             </Navbar.Header>
             <Navbar.Collapse>
                 <Nav>
                     {sections.map((sectionName, index) => {
-                        return <NavItem>
+                        return <NavItem key={index}>
                             <Link
                                 className={sectionName + '-link'}
                                 duration={800 + index * 100}

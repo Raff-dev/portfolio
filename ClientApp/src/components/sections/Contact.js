@@ -2,12 +2,8 @@ import React, { Fragment, useState } from "react";
 import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBIcon } from 'mdbreact';
 import { Section } from "../utilities/Section";
 
-export function Contact(props) {
-    const [state, _setState] = useState({
-        email: "",
-        name: "",
-        message: "",
-    })
+export function Contact({ nextSectionName }) {
+    const [state, _setState] = useState({ email: "", name: "", message: "", })
     const [result, _setResult] = useState(null);
     const setState = (values) => {
         for (let [key, value] of Object.entries(values))
@@ -33,8 +29,6 @@ export function Contact(props) {
             .catch(failure);
     };
     const setResult = (valid, messages) => {
-        console.log(messages)
-
         const colorClass = valid ? 'text-success' : 'text-danger';
 
         _setResult(
@@ -63,65 +57,47 @@ export function Contact(props) {
         setResult(false, ['Failed to send message']);
     }
 
-    const contactForm =
-        <div className="section-content contact">
-            <MDBContainer>
-                <form>
-                    <div className="result-messages">
-                        {result}
-                    </div>
-                    <div className="contact-top">
-                        <div className="contact-name">
-                            <label htmlFor="defaultFormContactNameEx" className="grey-text">
-                                name
-                            </label>
-                            <input
-                                onChange={(event) => setState({ name: event.target.value })}
-                                type="text"
-                                id="defaultFormContactNameEx"
-                                className="form-control"
-                            />
+    return (
+        <Section sectionName={"Contact"} nextSectionName={nextSectionName} >
+            <div className="section-content contact">
+                <MDBContainer>
+                    <form>
+                        <div className="result-messages">{result}</div>
+                        <div className="contact-top">
+                            <div className="contact-name">
+                                <label htmlFor="defaultFormContactNameEx" className="grey-text">name</label>
+                                <input
+                                    onChange={(event) => setState({ name: event.target.value })}
+                                    type="text"
+                                    id="defaultFormContactNameEx"
+                                    className="form-control" />
+                            </div>
+                            <br />
+                            <div className="contact-email">
+                                <label >email</label>
+                                <input
+                                    onChange={(event) => setState({ email: event.target.value })}
+                                    type="email"
+                                    id="defaultFormContactEmailEx"
+                                    className="form-control" />
+                            </div>
                         </div>
                         <br />
-                        <div className="contact-email">
-                            <label >
-                                email
-                            </label>
-                            <input
-                                onChange={(event) => setState({ email: event.target.value })}
-                                type="email"
-                                id="defaultFormContactEmailEx"
+                        <div>
+                            <label className="grey-text">Your message</label>
+                            <textarea
+                                onChange={(event) => setState({ message: event.target.value })}
+                                type="text"
+                                id="defaultFormContactMessageEx"
                                 className="form-control"
-                            />
+                                rows="3" />
                         </div>
-                    </div>
-                    <br />
-                    <div>
-                        <label className="grey-text">
-                            Your message
-                        </label>
-                        <textarea
-                            onChange={(event) => setState({ message: event.target.value })}
-                            type="text"
-                            id="defaultFormContactMessageEx"
-                            className="form-control"
-                            rows="3"
-                        />
-                    </div>
-                    <div className="contact-submit">
-                        <MDBBtn
-                            onClick={submit}
-                            color="primary"
-                        >
-                            SEND
-                        </MDBBtn>
-                    </div>
-                </form>
-            </MDBContainer>
-        </div >;
-
-    return <Section
-        content={contactForm}
-        sectionName={"Contact"}
-        nextSectionName={props.nextSectionName} />
+                        <div className="contact-submit">
+                            <MDBBtn onClick={submit} color="primary">SEND</MDBBtn>
+                        </div>
+                    </form>
+                </MDBContainer>
+            </div >
+        </Section>
+    );
 }

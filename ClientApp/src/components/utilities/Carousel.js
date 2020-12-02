@@ -44,7 +44,7 @@ export class Carousel extends Component {
                                 else if (offset < -Math.floor(len / 2)) offset += len;
                                 let dir = offset === 0 ? 0 : offset / Math.abs(offset);
                                 let showTransition = Math.abs(offset + this.state.clickDir) <= 2 ? 1 : 0;
-                                return <Card
+                                return <Card key={index}
                                     card={card}
                                     offset={offset}
                                     dir={dir}

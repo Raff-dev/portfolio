@@ -20,7 +20,7 @@ export function CarouselNav(props) {
                 let classes = active ? 'dot active' : 'dot';
 
                 return (
-                    <div
+                    <div key={index}
                         data-modal={props.modalActive}
                         className={classes}
                         onClick={() => props.onClick(offset)}

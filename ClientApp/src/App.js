@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 
 import { NavMenu } from './components/sections/NavMenu';
 import { Home } from './components/sections/Home';
 import { Projects } from './components/sections/Projects';
 import { Education } from './components/sections/Education';
+import { MdTest } from './components/sections/MdTest';
 import { About } from './components/sections/About';
 import { Skills } from './components/sections/Skills';
 import { Experience } from './components/sections/Experience';
@@ -18,37 +19,22 @@ import './css/TimeLine.scss';
 import './css/Contact.scss';
 import { Contact } from './components/sections/Contact';
 
-export default class App extends Component {
-    displayName = App.name
+export const App = () => {
+    const sections = ['Home', 'Projects', 'Skills', 'About', 'Contact']
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            sections: [
-                'Home', 'Projects', 'Skills', 'About', 'Contact'],
-            obsolete: ['Education', 'Experience',]
-        }
-    }
-
-    render() {
-        const sections = this.state.sections;
-        return (
-            <div class="p-0">
-                <NavMenu sections={this.state.sections} />
-                <Home />
-                <div>
-                    <Projects nextSectionName={sections[2]} />
-                    <hr class="m-0" />
-                    <Skills nextSectionName={sections[3]} />
-                    <hr class="m-0" />
-                    <About nextSectionName={sections[4]} />
-                    <hr class="m-0" />
-                    {/* <Education nextSectionName={sections[5]} />
-                    <hr class="m-0" />
-                    <Experience nextSectionName={sections[6]} /> */}
-                    <Contact nextSectionName={null} />
-                </div>
+    return (
+        <div className="p-0">
+            <NavMenu sections={sections} />
+            <Home />
+            <div>
+                <Projects nextSectionName={sections[2]} />
+                <hr className="m-0" />
+                <Skills nextSectionName={sections[3]} />
+                <hr className="m-0" />
+                <About nextSectionName={sections[4]} />
+                <hr className="m-0" />
+                <Contact nextSectionName={null} />
             </div>
-        );
-    }
+        </div>
+    );
 }

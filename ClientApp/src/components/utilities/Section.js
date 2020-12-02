@@ -1,18 +1,14 @@
 import React from 'react';
 import { NextArrow } from './Navigation'
 
-export function Section(props) {
-    const sectionName = props.sectionName;
-    const nextSectionName = props.nextSectionName;
-    const content = props.content;
-
+export function Section({ sectionName, nextSectionName, children }) {
     return (
         <section className="resume-section" id={sectionName}>
             <div className="next-arrow-wrapper">
                 <span className="section-title-container">
                     <h2 className="section-name">{sectionName}</h2>
                 </span>
-                {content}
+                {children}
             </div>
             < NextArrow id={nextSectionName} />
         </section>
