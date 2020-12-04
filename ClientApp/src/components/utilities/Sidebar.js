@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from 'react'
-import { Link, animateScroll as scroll } from 'react-scroll'
+import { Link } from 'react-scroll'
 import '../../css/Sidebar.scss'
 
 export const Sidebar = ({ sections }) => {
     const [currentSection, setCurrentSection] = useState(sections[0])
+    const [show, setShow] = useState(false);
 
     useEffect(() => {
         let prevScroll = window.scrollY;
         window.addEventListener('scroll', event => {
+            if (window.scrollY < window.innerHeight * 3 / 4) setShow(false)
+            else setShow(true)
+
+
             let elems = sections.map(section => {
                 let elem = document.getElementById(section);
                 return ({ name: section, height: elem.clientHeight, offset: elem.offsetTop })
@@ -15,10 +20,8 @@ export const Sidebar = ({ sections }) => {
 
             let dir = window.scrollY - prevScroll > 0;
             prevScroll = window.scrollY;
-            console.log(window.scrollY + window.innerHeight / 2)
 
             for (let [index, el] of Object.entries(elems)) {
-                console.log(el)
                 if (dir & (window.scrollY + window.innerHeight / 2 > el.offset)) {
                     setCurrentSection(el.name);
                 } else if (!dir & (el.offset + el.height > window.scrollY + window.innerHeight / 2)) {
@@ -35,7 +38,7 @@ export const Sidebar = ({ sections }) => {
     }
 
     return (
-        <nav className="sidebar">
+        <nav className={show ? 'sidebar show' : 'sidebar'}>
             {sections.map(section =>
                 <Link
                     key={section}
