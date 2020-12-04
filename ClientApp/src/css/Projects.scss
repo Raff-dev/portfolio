@@ -1,27 +1,36 @@
-#Markdown{
-    .current-project{
-        transform: translateX(100vw);
-        animation: 0.5s slidein ease-out forwards;
+#Projects{
+    .projects-container{
+        position: relative;
     }
-
-    .prev-project{
+    .project{
+        top:0;
         position: absolute;
         animation: 0.5s slideout ease-out forwards;
+
+        &.active{
+        position: relative;
+
+            animation: 0.5s slidein ease-out forwards;
+        }
     }
 
     @keyframes slidein {
         from{
+            opacity: 0;
             transform: translateX(100vw);
         }
         to{
+            opacity: 1;
             transform: translateX(0);
         }
     }
     @keyframes slideout {
         from{
+            opacity: 1;
             transform: translateX(0);
         }
         to{
+            opacity: 0;
             transform: translateX(-100vw);
         }
     }
@@ -71,19 +80,21 @@
                     font-weight: 500;
                     opacity: 0.85;
                     color:rgb(255,106,0);
-                        transition: color 0.2s ease-out;
-                        transition: 0.2s ease-out;
+                    transition: color 0.2s ease-out;
+                    transition: 0.2s ease-out;
+                    text-decoration: none;
 
                     &.selected{
                         opacity: 0.4;
                     }
+                    @media (hover: hover) {
+                        &:hover{
+                            text-decoration: none;
+                            cursor: pointer;
+                            transform: scale(1.08);
+                            opacity: 0.95;
 
-                    &:hover{
-                        text-decoration: none;
-                        cursor: pointer;
-                        transform: scale(1.08);
-                        opacity: 0.95;
-
+                        }
                     }
                 }
             }

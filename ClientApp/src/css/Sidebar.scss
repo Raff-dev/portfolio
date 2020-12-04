@@ -3,20 +3,32 @@
     position: fixed;
     left: calc(100% - 5rem);
     top:50%;
-    transform: translateY(-50%);
+    transform: translate(100%,-50%);
+
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
     background-color: rgba(0,0,0,0.3);
     transition: 0.3s ease-out;
     z-index: 11;
+    opacity: 0;
 
-    &:hover{
-        transform: translate(calc(-100% + 5rem),-50%);
+  
 
+    &.show{
+        transform: translate(0,-50%);
 
-        a span{
-            display: block;
-            animation: 0.3s slide ease-in forwards;
+        transition: 0.3s ease-out;
+        opacity: 1;
+    }
+
+    @media (hover: hover) {
+        &:hover{
+            transform: translate(calc(-100% + 5rem),-50%);
+            
+            a span{
+                display: block;
+                animation: 0.3s slide ease-in forwards;
+            }
         }
     }
 
