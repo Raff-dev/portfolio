@@ -68,7 +68,7 @@
                 padding-top: 3rem;
                 padding-bottom: 3rem;
                 display:flex;
-                justify-content: space-around;
+                justify-content: space-between;
                 flex-wrap: wrap;
 
                 a{
@@ -89,7 +89,6 @@
                     }
                     @media (hover: hover) {
                         &:hover{
-                            text-decoration: none;
                             cursor: pointer;
                             transform: scale(1.08);
                             opacity: 0.95;
