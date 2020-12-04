@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import { SocialIcon } from 'react-social-icons';
 import { NextArrow } from '../utilities/Navigation'
-import { markdown } from 'react-markdown'
 
-export const Home = (props) => {
+export const Home = ({ nextSectionName }) => {
     return (
         <section className="resume-section Home" id="Home">
             <div className="section-content">
@@ -24,7 +23,7 @@ export const Home = (props) => {
                     <SocialIcon url="https://github.com/Raff-dev/" bgColor="rgb(0, 127, 177)" />
                 </div>
             </div>
-            <NextArrow id="Projects" />
+            <NextArrow id={nextSectionName} />
         </section>
     );
 }

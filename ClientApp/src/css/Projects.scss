@@ -1,0 +1,150 @@
+#Projects{
+    .projects-container{
+        position: relative;
+    }
+    .project{
+        top:0;
+        position: absolute;
+        animation: 0.5s slideout ease-out forwards;
+
+        &.active{
+        position: relative;
+
+            animation: 0.5s slidein ease-out forwards;
+        }
+    }
+
+    @keyframes slidein {
+        from{
+            opacity: 0;
+            transform: translateX(100vw);
+        }
+        to{
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+    @keyframes slideout {
+        from{
+            opacity: 1;
+            transform: translateX(0);
+        }
+        to{
+            opacity: 0;
+            transform: translateX(-100vw);
+        }
+    }
+
+
+    .github-link{
+        .social-icon{
+            transition: 0.3s ease-out;
+            opacity:0.3;
+
+            &:hover{
+                transform: scale(1.1);
+                opacity:0.5;
+            }
+        }
+
+        span{
+            padding-left: 1rem;
+            font-weight: 300;
+        }
+
+    }
+    .projects-nav{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-left: 5%;
+        padding-right: 5%;
+
+    
+        nav{
+            // background: linear-gradient(to right,#0000,#0003,#0000);
+
+            .items{
+                padding-top: 3rem;
+                padding-bottom: 3rem;
+                display:flex;
+                justify-content: space-around;
+                flex-wrap: wrap;
+
+                a{
+                    margin-left: 1rem;
+                    margin-right: 1rem;
+                    text-transform: uppercase;
+                    font-family: 'Roboto';
+                    font-size: 2rem;
+                    font-weight: 500;
+                    opacity: 0.85;
+                    color:rgb(255,106,0);
+                    transition: color 0.2s ease-out;
+                    transition: 0.2s ease-out;
+                    text-decoration: none;
+
+                    &.selected{
+                        opacity: 0.4;
+                    }
+                    @media (hover: hover) {
+                        &:hover{
+                            text-decoration: none;
+                            cursor: pointer;
+                            transform: scale(1.08);
+                            opacity: 0.95;
+
+                        }
+                    }
+                }
+            }
+        }
+}
+
+
+    .tag-chips{
+        padding-top: 20px;
+        padding-bottom: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        text-align: center;
+
+        .chip{
+            font-size: 1.5rem;
+            padding: 5px;
+            margin:0.2rem;
+            color: rgba(255,255,255,50);
+            background-color: rgb(255,106,0);
+            opacity: 0.9;
+
+        }
+    }
+
+    .markdown{
+        font-family: "Recursive";
+
+        img{
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: scale-down;
+        }
+    }
+
+
+
+}    
+
+.konia{
+    height:50px;
+    background-color: blue;
+    position: sticky;
+    top:0;
+}
+.test{
+    display: block;
+    align-items: flex-start;
+    overflow: visible;
+    height:2000px;
+    position: relative;
+}
