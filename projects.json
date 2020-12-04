@@ -1,9 +1,32 @@
-'projects':[
-        { 'label': 'Wat Plan', 'name': 'WAT_Plan' },
-        { 'label': 'Data Science', 'name': 'Data-Science' },
-        { 'label': 'Toster', 'name': 'Toster' },
-        { 'label': 'LZ77', 'name': 'Dictionary-Coder' },
-        { 'label': 'Tetris', 'name': 'Tetris' },
-        { 'label': 'Portfolio', 'name': 'Portfolio' },
-        { 'label': 'Boids', 'name': 'Boids' },
-]
+{
+    "projects": [
+        {
+            "label": "Wat Plan",
+            "name": "WAT_Plan"
+        },
+        {
+            "label": "Data Science",
+            "name": "Data-Science"
+        },
+        {
+            "label": "Toster",
+            "name": "Toster"
+        },
+        {
+            "label": "LZ77",
+            "name": "Dictionary-Coder"
+        },
+        {
+            "label": "Tetris",
+            "name": "Tetris"
+        },
+        {
+            "label": "Portfolio",
+            "name": "Portfolio"
+        },
+        {
+            "label": "Boids",
+            "name": "Boids"
+        }
+    ]
+}
