@@ -38,7 +38,6 @@
     "html-webpack-plugin": "2.29.0",
     "jest": "20.0.4",
     "mdbreact": "^4.27.0",
-    "micromark-extension-gfm-table": "^0.4.1",
     "object-assign": "4.1.1",
     "postcss-flexbugs-fixes": "3.2.0",
     "postcss-loader": "2.0.8",

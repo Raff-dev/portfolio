@@ -10,8 +10,8 @@ export function NavMenu({ sections }) {
             </Navbar.Header>
             <Navbar.Collapse>
                 <Nav>
-                    {sections.map((sectionName, index) =>
-                        <NavItem key={index}>
+                    {sections.map((sectionName, index) => {
+                        return <NavItem key={index}>
                             <Link
                                 className={sectionName + '-link'}
                                 duration={800 + index * 100}
@@ -20,7 +20,8 @@ export function NavMenu({ sections }) {
                             >
                                 {sectionName}
                             </Link>
-                        </NavItem>)}
+                        </NavItem>
+                    })}
                 </Nav>
             </Navbar.Collapse>
         </Navbar>
