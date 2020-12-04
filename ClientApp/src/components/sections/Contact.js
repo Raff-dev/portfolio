@@ -1,5 +1,5 @@
-import React, { Fragment, useState } from "react";
-import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBIcon } from 'mdbreact';
+import React, { useState } from "react";
+import { MDBContainer, MDBBtn } from 'mdbreact';
 import { Section } from "../utilities/Section";
 
 export function Contact({ nextSectionName }) {

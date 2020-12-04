@@ -1,94 +1,104 @@
-﻿import React, { Component } from 'react';
-import { Carousel } from '../utilities/Carousel';
-import { Section } from '../utilities/Section';
+import React, { useEffect, useState } from 'react'
+import Markdown from 'react-markdown'
+import { Section } from '../utilities/Section'
+import { Grid, Col, Row } from 'react-bootstrap'
+import { Chip } from '@material-ui/core';
+import axios from 'axios'
+import { SocialIcon } from 'react-social-icons';
+import gfm from 'remark-gfm'
+import { Link } from 'react-scroll'
 
-export const Projects = ({ nextSectionName }) => {
+import '../../css/Projects.scss'
 
-    const projects = [
-        {
-            images: [
-                "images/watplan.png",
-                "images/watplanfeatures.gif",
-                "images/watplanstart.gif",
-                "images/watplan4.png",
-            ],
-            title: 'WatPlan',
-            description:
-                <p>Military University of Technology schedule android app,
-                        written in <span>Java</span>, implementing local <span>SQL </span>
-                        database, with my own REST API built using
-                        <span> Django REST Framework</span>, <span>Python</span>.</p>,
-            links: [
-                'https://github.com/Raff-dev/WAT_Plan',
-                'https://watplan.eu.pythonanywhere.com/home/']
-        },
-        {
-            images: [
-                "images/toster.gif",
-                "images/toster2.gif",
-                "images/toster3.gif",
-                "images/toster4.gif",
-            ],
-            title: 'Toster',
-            description: <p>Toster is a copy of Twitter, which back-end I have
-                    written in <span>Python</span> using <span>Django framework</span>,
-                    whereas front-end in <span>JavaScript</span>, using <span>JQuery</span>.
-                    Includes various activities such as posting, commenting, liking,
-                    editing profile and more.</p>,
-            links: [
-                'https://github.com/Raff-dev/Toster']
-        },
-        {
-            images: [
-                "images/lz77.png",
-                "images/lz772.gif"
-            ],
-            title: 'LZ77',
-            description: <p>Theory of information and encoding class project,
-            which is an implementation of LZ77 losseless text data compression algorithm.
-                    Written in <span>C#</span> using <span>ASP.NET</span>.</p>,
-            links: [
-                'https://github.com/Raff-dev/Dictionary-Coder']
-        },
-        {
-            images: [
-                "images/tetris.gif",
-                "images/tetris2.gif",
-                "images/tetris3.gif",
-            ],
-            title: 'Tetris',
-            description: <p>My interpretation of classic Tetris game,
-                    written in <span>Java</span> and displayed with the help
-                    of JavaFX graphical library.</p>,
-            links: [
-                'https://github.com/Raff-dev/Tetris',]
-        },
-        {
-            images: ["images/portfolio.png"],
-            title: 'Portfolio',
-            description: <p>This portfolio of mine was created in
-                    <span> JavaScript </span>using<span> ReactJS </span>framework
-                     to display my skills and experience.</p>,
-            links: [
-                'https://github.com/Raff-dev/Portfolio',
-                'https://raff-dev.github.io/Portfolio']
-        },
-        {
-            images: ["images/boids.gif"],
-            title: 'Boids',
-            description: <p>Boids is an artificial life simulation,
-            which aims to replicate behaviour of flocks of birds.
-                    Written in <span>C#</span> language within <span>Unity</span> game engine.</p>,
-            links: [
-                'https://github.com/Raff-dev/Boids',]
-        },
-    ]
+
+export const Projects = () => {
+    const [projects, setProjects] = useState([])
+    const [currentProject, setCurrentProject] = useState({ name: '' })
+    const [loading, setLoading] = useState(true);
+
+    const baseUrl = 'https://raw.githubusercontent.com/Raff-dev'
+    const srcToRepoSrc = (match, project) => {
+        let path = match.replace('src=', '').replaceAll(`"`, '');
+        return `src="${baseUrl}/${project.name}/master/${path}"`
+    }
+    useEffect(() => {
+        axios.get(`${baseUrl}/Portfolio/master/projects.json`)
+            .then(res => {
+                setProjects(res.data.projects);
+                setCurrentProject(res.data.projects[0])
+                setLoading(false);
+            }).catch(console.log);
+    }, [])
+
+    useEffect(() => {
+        for (let project of projects) {
+            const url = `${baseUrl}/${project.name}/master/README.md`;
+            axios.get(url)
+                .then(res => {
+                    let markdown = res.data;
+                    let tags = markdown.match(/\[tags]: <> \([^)]*\)/g)
+
+                    // repair underline
+                    markdown = markdown.replace(/(^|.)+\n(-|_|\*){3}/g, match => `## ${match}`)
+
+                    //get images repo source 
+                    markdown = markdown.replace(/src="[^\s:]+"/g, (match) => srcToRepoSrc(match, project))
+
+                    project.tags = tags ? tags[0].replace('[tags]: <> (', '').replace(')', '').split(', ') : [];
+                    project.markdown = markdown
+                    setProjects([...projects])
+
+                })
+                .catch(console.log)
+        }
+    }, [loading])
 
     return (
-        <Section sectionName={"Projects"} nextSectionName={nextSectionName}>
-            <Carousel cards={projects}></Carousel>
-        </Section>
+        <Section className="projects" sectionName="Projects">
+            <Row className="projects-nav" sm={8} >
+                <nav>
+                    <hr className="m-0" />
+                    <div className="items">
+                        {projects.map(project =>
+                            <Link
+                                to="Projects"
+                                duration={300}
+                                smooth={true}
+                                className={(currentProject.name === project.name) && 'selected'} >
+                                <span onClick={() => setCurrentProject(project)} >{project.label}</span>
+                            </Link>
+                        )}
+                    </div>
+                    <hr className="m-0" />
+                </nav>
+            </Row>
+            <Grid>
+                <Col>
+                    <div class="projects-container" >
+                        {projects.map(project =>
+                            <div id={project.label} className={currentProject.name === project.name ? "project active" : "project"}>
+                                <div className="github-link">
+                                    <SocialIcon url={`https://github.com/Raff-dev/${project.name}`} bgColor="rgb(0, 0, 0)" />
+                                    <span className="text-muted text-light">
+                                        View the code on GitHub!
+                                    </span>
+                                </div>
+
+                                <div className="tag-chips">
+                                    {project.tags && project.tags.map(tag => <Chip className="chip" label={tag} />)}
+                                </div>
+                                <hr className="m-0" />
+
+                                <div className="markdown">
+                                    <Markdown allowDangerousHtml plugins={[gfm]} source={project.markdown} />
+                                </div>
+                            </div>
+                        )}
+                    </div>
+                </Col>
+            </Grid>
+        </Section >
     );
+
+
 }
-
-
