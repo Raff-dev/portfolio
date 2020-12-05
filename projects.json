@@ -27,6 +27,6 @@
         {
             "label": "LZ77",
             "name": "Dictionary-Coder"
-        },
+        }
     ]
 }
