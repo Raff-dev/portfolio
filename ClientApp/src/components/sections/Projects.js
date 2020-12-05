@@ -1,15 +1,13 @@
-import React, { useEffect, useState } from 'react'
-import Markdown from 'react-markdown'
+﻿import React, { useEffect, useState } from 'react'
+import ReactMarkdown from 'react-markdown'
 import { Section } from '../utilities/Section'
 import { Grid, Col, Row } from 'react-bootstrap'
 import { Chip } from '@material-ui/core';
 import axios from 'axios'
 import { SocialIcon } from 'react-social-icons';
-import gfm from 'remark-gfm'
 import { Link } from 'react-scroll'
 
 import '../../css/Projects.scss'
-
 
 export const Projects = () => {
     const [projects, setProjects] = useState([])
@@ -21,11 +19,12 @@ export const Projects = () => {
         let path = match.replace('src=', '').replaceAll(`"`, '');
         return `src="${baseUrl}/${project.name}/master/${path}"`
     }
+
     useEffect(() => {
         axios.get(`${baseUrl}/Portfolio/master/projects.json`)
             .then(res => {
                 setProjects(res.data.projects);
-                setCurrentProject(res.data.projects[0])
+                setCurrentProject(res.data.projects[0]);
                 setLoading(false);
             }).catch(console.log);
     }, [])
@@ -36,7 +35,7 @@ export const Projects = () => {
             axios.get(url)
                 .then(res => {
                     let markdown = res.data;
-                    let tags = markdown.match(/\[tags]: <> \([^)]*\)/g)
+                    let tags = markdown.match(/\[tags\]: <> \([^)]*\)/g)
 
                     // repair underline
                     markdown = markdown.replace(/(^|.)+\n(-|_|\*){3}/g, match => `## ${match}`)
@@ -90,7 +89,7 @@ export const Projects = () => {
                                 <hr className="m-0" />
 
                                 <div className="markdown">
-                                    <Markdown allowDangerousHtml plugins={[gfm]} source={project.markdown} />
+                                    <ReactMarkdown allowDangerousHtml={true} source={project.markdown} />
                                 </div>
                             </div>
                         )}
