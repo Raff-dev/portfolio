@@ -9,24 +9,24 @@
             "name": "Data-Science"
         },
         {
+            "label": "Portfolio",
+            "name": "Portfolio"
+        },
+        {
             "label": "Toster",
             "name": "Toster"
         },
         {
-            "label": "LZ77",
-            "name": "Dictionary-Coder"
+            "label": "Boids",
+            "name": "Boids"
         },
         {
             "label": "Tetris",
             "name": "Tetris"
         },
         {
-            "label": "Portfolio",
-            "name": "Portfolio"
+            "label": "LZ77",
+            "name": "Dictionary-Coder"
         },
-        {
-            "label": "Boids",
-            "name": "Boids"
-        }
     ]
 }
