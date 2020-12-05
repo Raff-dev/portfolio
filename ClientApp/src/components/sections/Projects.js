@@ -1,5 +1,4 @@
 ﻿import React, { useEffect, useState } from 'react'
-import ReactMarkdown from 'react-markdown'
 import { Section } from '../utilities/Section'
 import { Grid, Col, Row } from 'react-bootstrap'
 import { Chip } from '@material-ui/core';
@@ -7,7 +6,17 @@ import axios from 'axios'
 import { SocialIcon } from 'react-social-icons';
 import { Link } from 'react-scroll'
 
+import ReactMarkdown from 'react-markdown'
+import SyntaxHighlighter from 'react-syntax-highlighter'
+import { androidstudio } from 'react-syntax-highlighter/dist/esm/styles/hljs'
+
 import '../../css/Projects.scss'
+
+const renderers = {
+    code: ({ language, value }) => {
+        return <SyntaxHighlighter style={androidstudio} language={language} children={value} />
+    }
+}
 
 export const Projects = () => {
     const [projects, setProjects] = useState([])
@@ -89,7 +98,7 @@ export const Projects = () => {
                                 <hr className="m-0" />
 
                                 <div className="markdown">
-                                    <ReactMarkdown allowDangerousHtml={true} source={project.markdown} />
+                                    <ReactMarkdown renderers={renderers} allowDangerousHtml={true} children={project.markdown} />
                                 </div>
                             </div>
                         )}
