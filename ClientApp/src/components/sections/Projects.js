@@ -69,6 +69,7 @@ export const Projects = ({nextSectionName}) => {
                     <div className="items">
                         {projects.map(project =>
                             <Link
+                                key={project.name}
                                 to="Projects"
                                 duration={300}
                                 smooth={true}
@@ -82,7 +83,7 @@ export const Projects = ({nextSectionName}) => {
             </Row>
             <Grid>
                 <Col>
-                    <div class="projects-container" >
+                    <div className="projects-container" >
                         {projects.map(project =>
                             <div id={project.label} className={currentProject.name === project.name ? "project active" : "project"}>
                                 <div className="github-link">
