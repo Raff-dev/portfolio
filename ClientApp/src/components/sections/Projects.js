@@ -18,7 +18,7 @@ const renderers = {
     }
 }
 
-export const Projects = () => {
+export const Projects = ({nextSectionName}) => {
     const [projects, setProjects] = useState([])
     const [currentProject, setCurrentProject] = useState({ name: '' })
     const [loading, setLoading] = useState(true);
@@ -62,7 +62,7 @@ export const Projects = () => {
     }, [loading])
 
     return (
-        <Section className="projects" sectionName="Projects">
+        <Section className="projects" sectionName="Projects" nextSectionName={nextSectionName}>
             <Row className="projects-nav" sm={8} >
                 <nav>
                     <hr className="m-0" />
