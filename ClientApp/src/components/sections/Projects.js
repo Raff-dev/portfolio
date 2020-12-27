@@ -25,7 +25,7 @@ export const Projects = ({nextSectionName}) => {
 
     const baseUrl = 'https://raw.githubusercontent.com/Raff-dev'
     const srcToRepoSrc = (match, project) => {
-        let path = match.replace('src=', '').replaceAll(`"`, '');
+        let path = match.replace('src=', '').replace(`"`, '').replace(`"`, '');
         return `src="${baseUrl}/${project.name}/master/${path}"`
     }
 
