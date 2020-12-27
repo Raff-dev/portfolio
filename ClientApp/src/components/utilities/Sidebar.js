@@ -44,7 +44,7 @@ export const Sidebar = ({ sections }) => {
                     key={section}
                     to={section}
                     smooth={true} duration={getDuration(section)}
-                    className={section === currentSection && 'selected'}>
+                    className={section === currentSection ? 'selected' : undefined}>
                     <div className="dot"></div>
                     <span>{section}</span>
                 </Link>

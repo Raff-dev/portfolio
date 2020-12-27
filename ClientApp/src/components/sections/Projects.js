@@ -85,7 +85,7 @@ export const Projects = ({nextSectionName}) => {
                 <Col>
                     <div className="projects-container" >
                         {projects.map(project =>
-                            <div id={project.label} className={currentProject.name === project.name ? "project active" : "project"}>
+                            <div id={project.label} key={project.name} className={currentProject.name === project.name ? "project active" : "project"}>
                                 <div className="github-link">
                                     <SocialIcon url={`https://github.com/Raff-dev/${project.name}`} bgColor="rgb(0, 0, 0)" />
                                     <span className="text-muted text-light">
@@ -94,7 +94,7 @@ export const Projects = ({nextSectionName}) => {
                                 </div>
 
                                 <div className="tag-chips">
-                                    {project.tags && project.tags.map(tag => <Chip className="chip" label={tag} />)}
+                                    {project.tags && project.tags.map(tag => <Chip key={tag} className="chip" label={tag} />)}
                                 </div>
                                 <hr className="m-0" />
 
