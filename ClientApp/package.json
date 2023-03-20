@@ -70,7 +70,7 @@
     "deploy": "gh-pages -d build"
   },
   "devDependencies": {
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "react-social-icons": "^4.1.0",
     "sass-loader": "^7.3.1",
     "terser-webpack-plugin": "^5.0.3",
